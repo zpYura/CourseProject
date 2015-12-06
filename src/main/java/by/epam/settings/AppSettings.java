@@ -4,7 +4,9 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 import java.io.FileInputStream;
+import java.util.Locale;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 /**
  * Class for accessing main property file
@@ -15,6 +17,7 @@ import java.util.Properties;
 public class AppSettings {
     static Logger logger;
     private Properties dataBase;
+   // static ResourceBundle resourceBundle;
     private static AppSettings singleton;
 
     static {
@@ -40,5 +43,11 @@ public class AppSettings {
     public static String get(String key) {
         return singleton.dataBase.getProperty(key);
     }
-
+//    public static void createBundle(Locale current) {
+//        resourceBundle = ResourceBundle.getBundle("resources.text", current);
+//    }
+    public static String getBundleValue(Locale current, String key){
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("text", current);
+        return resourceBundle.getString(key);
+    }
 }
