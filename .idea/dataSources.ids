@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="SQLite" uuid="1bf36109-ece9-44b4-ab1a-62e05d91b225">
+    <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="administrators" schema="" catalog="" type="TABLE">
+      <column name="administrator_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="last_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="middle_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="birth_date" sqlType="DATE" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="phone_number" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="entry_in_the_post_date" sqlType="DATE" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <primary-key columns="administrator_id"/>
+    </table>
+    <table name="bills" schema="" catalog="" type="TABLE">
+      <column name="bill_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="cost" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="bill_id"/>
+    </table>
+    <table name="clients" schema="" catalog="" type="TABLE">
+      <column name="client_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="last_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="middle_name" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="birth_date" sqlType="DATE" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="phone_number" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="client_id"/>
+    </table>
+    <table name="requests" schema="" catalog="" type="TABLE">
+      <column name="request_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="number_of_beds" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12" def="JyJzdGFuZGFydCIn"/>
+      <column name="business" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="junior suite" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="suite" sqlType="" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="in_date" sqlType="DATE" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="out_date" sqlType="DATE" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="max_cost" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="min_cost" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="clients_client_id" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="administrators_administrator_id" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="request_id"/>
+    </table>
+    <table name="room_guide" schema="" catalog="" type="TABLE">
+      <column name="room_guide_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="requests_request_id" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="rooms_room_id" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="bills_bill_id" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <primary-key columns="room_guide_id"/>
+    </table>
+    <table name="rooms" schema="" catalog="" type="TABLE">
+      <column name="room_id" sqlType="INTEGER" precision="2000000000" scale="10" nullable="true" jdbcType="4"/>
+      <column name="number_of_beds" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="VARCHAR(45)" precision="2000000000" scale="10" nullable="true" jdbcType="12" def="JyJzdGFuZGFydCIn"/>
+      <column name="business" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="junior suite" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="suite" sqlType="" precision="2000000000" scale="10" nullable="false" jdbcType="12"/>
+      <column name="cost_per_day" sqlType="INT" precision="2000000000" scale="10" nullable="false" jdbcType="4"/>
+      <column name="release_date" sqlType="DATE" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <primary-key columns="room_id"/>
+    </table>
+    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" precision="2000000000" scale="10" nullable="true" jdbcType="12"/>
+    </table>
+  </data-source>
+</component>

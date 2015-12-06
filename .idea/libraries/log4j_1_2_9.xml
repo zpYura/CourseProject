@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="log4j-1.2.9">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/log4j-1.2.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.8.11.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.servlet-api-3.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.8.11.2.jar!/" />
+    </SOURCES>
+  </library>
+</component>
