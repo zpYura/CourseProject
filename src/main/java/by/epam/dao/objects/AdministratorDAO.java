@@ -60,7 +60,9 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
                 String address = resultSet.getString(6);
                 String phone = resultSet.getString(7);
                 Date entryInThePostDate = resultSet.getDate(8);
-                administrators.add(new Administrator(id, name1, name2, name3, date, address, phone, entryInThePostDate));
+                String login = resultSet.getString(9);
+                String password = resultSet.getString(10);
+                administrators.add(new Administrator(id, name1, name2, name3, date, address, phone, entryInThePostDate, login, password));
             }
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
@@ -91,7 +93,9 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             String address = resultSet.getString(6);
             String phone = resultSet.getString(7);
             Date entryInThePostDate = resultSet.getDate(8);
-            administrator = new Administrator(id, name1, name2,name3,date,address,phone,entryInThePostDate);
+            String login = resultSet.getString(9);
+            String password = resultSet.getString(10);
+            administrator = new Administrator(id, name1, name2,name3,date,address,phone,entryInThePostDate, login, password);
 
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
@@ -165,6 +169,8 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             st.setString(5, entity.getAddress());
             st.setString(6, entity.getPhoneNumber());
             st.setDate(7, new java.sql.Date(entity.getEntryInThePostDate().getTime()));
+            st.setString(8, entity.getLogin());
+            st.setString(9, entity.getPassword());
             st.executeUpdate();
             success = true;
         } catch (SQLException e) {
@@ -194,6 +200,8 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             st.setString(5, entity.getAddress());
             st.setString(6, entity.getPhoneNumber());
             st.setDate(7, new java.sql.Date(entity.getEntryInThePostDate().getTime()));
+            st.setString(8, entity.getLogin());
+            st.setString(9, entity.getPassword());
             st.executeUpdate();
             success = true;
         } catch (SQLException e) {

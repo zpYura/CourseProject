@@ -29,6 +29,6 @@
 </div>
 </div>
 <!-- start footer -->
-<c:import url="/jsp/common/footer.jsp" />
+<c:import url="/jsp/client/fragment/footer.jsp" />
 </body>
 </html>

@@ -9,12 +9,13 @@
 <div class="wrap">
 	<div class="header">
 		<div class="logo">
-			<a href="/index.jsp"><img src="/images/logo.png" alt=""></a>
+			<a href="/jsp/client/main.jsp"><img src="/images/logo.png" alt=""></a>
 		</div>
 		<div class="h_right">
 			<!--start menu -->
 			<ul class="menu">
-				<li class="active"><a href="/index.jsp">${hotel}</a></li> |
+				<li class="active"> Hello, ${user}</li> |
+				<li><a href="/jsp/client/main.jsp">hotel</a></li> |
 				<li><a href="/jsp/client/rooms.jsp">rooms & suits</a></li> |
 				<li><a href="/jsp/client/reservation.jsp">reservation</a></li> |
 				<li><a href="/jsp/client/activities.jsp">activities</a></li> |
@@ -38,7 +39,7 @@
 		<div class="top-nav">
 		<nav class="clearfix">
 				<ul>
-					<li class="active"><a href="/index.jsp">hotel</a></li>
+					<li class="active"><a href="/jsp/client/main.jsp">hotel</a></li>
 					<li><a href="/jsp/client/rooms.jsp">rooms & suits</a></li>
 					<li><a href="/jsp/client/reservation.jsp">reservation</a></li>
 					<li><a href="/jsp/client/activities.jsp">activities</a></li>

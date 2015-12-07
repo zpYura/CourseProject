@@ -16,8 +16,9 @@ public class Administrator extends Human implements Serializable {
     }
 
     public Administrator(int id, String lastName, String firstName, String middleName,
-                         Date birthDate, String address, String phoneNumber, Date entryInThePostDate) {
-        super(id, lastName, firstName, middleName, birthDate, address, phoneNumber);
+                         Date birthDate, String address, String phoneNumber,
+                         Date entryInThePostDate, String login, String password) {
+        super(id, lastName, firstName, middleName, birthDate, address, phoneNumber, login, password);
         this.entryInThePostDate = entryInThePostDate;
     }
 

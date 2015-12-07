@@ -52,7 +52,9 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
                 String address = resultSet.getString(6);
                 String phone = resultSet.getString(7);
                 String mail = resultSet.getString(8);
-                clients.add(new Client(id, name1, name2,name3,date,address,phone,mail));
+                String login = resultSet.getString(9);
+                String password = resultSet.getString(10);
+                clients.add(new Client(id, name1, name2, name3, date, address, phone, mail, login, password));
             }
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
@@ -83,7 +85,9 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
                 String address = resultSet.getString(6);
                 String phone = resultSet.getString(7);
                 String mail = resultSet.getString(8);
-                client = new Client(id, name1, name2,name3,date,address,phone,mail);
+                String login = resultSet.getString(9);
+                String password = resultSet.getString(10);
+                client = new Client(id, name1, name2, name3, date, address ,phone, mail, login, password);
 
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
@@ -157,6 +161,8 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
             st.setString(5, entity.getAddress());
             st.setString(6, entity.getPhoneNumber());
             st.setString(7, entity.getEmail());
+            st.setString(8, entity.getLogin());
+            st.setString(9, entity.getPassword());
             st.executeUpdate();
             success = true;
         } catch (SQLException e) {
@@ -187,6 +193,8 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
             st.setString(5, entity.getAddress());
             st.setString(6, entity.getPhoneNumber());
             st.setString(7, entity.getEmail());
+            st.setString(8, entity.getLogin());
+            st.setString(9, entity.getPassword());
             st.executeUpdate();
             success = true;
         } catch (SQLException e) {

@@ -64,3 +64,22 @@ java.sql.SQLException: SQL String can not be NULL
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
 01.12.2015 21:23:52 [main] INFO  by.epam.dao.objects.AdministratorDAO - Administrator with id 5 was added
+07.12.2015 19:00:20 [main] ERROR by.epam.dao.objects.ClientDAO - SQL exception (request or table failed):
+java.sql.SQLException: Field 'client_id' doesn't have a default value
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:959)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3870)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3806)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2470)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2617)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2550)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2073)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2009)
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5094)
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:1994)
+	at by.epam.dao.objects.ClientDAO.create(ClientDAO.java:166)
+	at by.epam.dao.mysql.MySQLClientDAO.create(MySQLClientDAO.java:39)
+	at by.epam.dao.mysql.MySQLClientDAO.create(MySQLClientDAO.java:16)
+	at by.epam.runner.Main.main(Main.java:54)
+07.12.2015 19:00:20 [main] INFO  by.epam.dao.objects.ClientDAO - Client with id 5 was added
+07.12.2015 19:09:20 [main] INFO  by.epam.dao.objects.ClientDAO - Client with id 5 was added

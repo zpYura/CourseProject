@@ -1,12 +1,15 @@
 package by.epam.runner;
 
 import by.epam.dao.factory.DAOFactory;
+import by.epam.entities.Client;
+import by.epam.enums.CommandType;
 import by.epam.enums.DataBaseType;
 //import by.epam.dao.mysql.MySQLDAOFactory;
 //import by.epam.dao.objects.RoomDAO;
 import by.epam.entities.Administrator;
 import by.epam.settings.AppSettings;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.time.Instant;
 import java.util.Date;
@@ -15,15 +18,19 @@ import java.util.Locale;
 public class Main {
 
     public static void main(String[] args) {
-        String language = "EN";
-        if(language =="EN"){
-            //AppSettings.createBundle(new Locale("US","EN"));
-            // request.setAttribute("hotel", AppSettings.getBundleValue(new Locale("US","EN"),"hotel"));
-            String dfd = AppSettings.getBundleValue(new Locale("EN","US"),"hotel");
-        }
-        if(language == "RU"){
-
-        }
+//        String language = "EN";
+//        String action = "sign_up";
+//        try {
+//            CommandType currentEnum = CommandType.valueOf(action.toUpperCase());
+//            int g =0;
+//
+//        }
+//        catch (IllegalArgumentException e){
+//        System.err.println(e.getMessage());
+//        }
+//        if(language == "RU"){
+//
+//        }
         DAOFactory dao = DAOFactory.getDAOFactory(DataBaseType.MYSQL);
         try{
 //
@@ -41,15 +48,16 @@ public class Main {
 //            else
 //            { System.out.print("Empty");
 //            }
-          //  Client client = new Client(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525","mai;@");
+          Client client = new Client(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525","mai;@", "dwwdw", "asas");
+
            // dao.getClientDAO().update(client);
-           //dao.getClientDAO().create(client);
+           dao.getClientDAO().create(client);
             //dao.getClientDAO().delete(client);
            // dao.getClientDAO().delete(Integer.valueOf(1));
             //dao.getClientDAO().delete(Integer.valueOf(2));
             //dao.getClientDAO().delete(Integer.valueOf(3));
-           Administrator client = new Administrator(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525", Date.from(Instant.now()));
-            dao.getAdministratorDAO().create(client);
+         //  Administrator client = new Administrator(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525", Date.from(Instant.now()),"gfg","ffd");
+          //  dao.getAdministratorDAO().create(client);
         }
         catch (SQLException exp){
             System.err.print(exp.getMessage());

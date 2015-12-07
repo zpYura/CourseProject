@@ -16,8 +16,8 @@ public class Client extends Human implements Serializable{
     }
 
     public Client(int id, String lastName, String firstName, String middleName,
-                  Date birthDate, String address, String phoneNumber, String email) {
-        super(id, lastName, firstName, middleName, birthDate, address, phoneNumber);
+                  Date birthDate, String address, String phoneNumber, String email, String login, String password) {
+        super(id, lastName, firstName, middleName, birthDate, address, phoneNumber, login, password);
         this.email = email;
     }
 

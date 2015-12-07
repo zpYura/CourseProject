@@ -16,8 +16,10 @@ public class Human extends Entity implements Serializable {
     Date birthDate;
     String address;
     String phoneNumber;
+    String login;
+    String password;
 
-    public Human(int id, String lastName, String firstName, String middleName, Date birthDate, String address, String phoneNumber) {
+    public Human(int id, String lastName, String firstName, String middleName, Date birthDate, String address, String phoneNumber, String login, String password) {
         super(id);
         this.lastName = lastName;
         this.firstName = firstName;
@@ -25,6 +27,8 @@ public class Human extends Entity implements Serializable {
         this.birthDate = birthDate;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.login = login;
+        this.password = password;
     }
 
     public Human() {
@@ -78,6 +82,22 @@ public class Human extends Entity implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Human{" +
@@ -87,6 +107,8 @@ public class Human extends Entity implements Serializable {
                 ", birthDate=" + birthDate +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 "} " + super.toString();
     }
 }
