@@ -41,50 +41,50 @@
         <div class="main">
             <div class="contact">
                 <div class="contact-form">
-                    <h2 class="login-header" align="center">Sign Up</h2>
+                    <h2 class="login-header" align="center">${registration_message}</h2>
                     <form method="post" action="/controller" class="login-form">
                         <input type="hidden" name="command" value="sign_up" />
                         <div>
-                            <span><label>LAST NAME</label></span>
+                            <span><label>${registration_lastName}</label></span>
                             <span><input name="userLastName" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>FIRST NAME</label></span>
+                            <span><label>${registration_firstName}</label></span>
                             <span><input name="userFirstName" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>MIDDLE NAME</label></span>
+                            <span><label>${registration_middleName}</label></span>
                             <span><input name="userMiddleName" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>BIRTH DATE</label></span>
+                            <span><label>${registration_birthDate}</label></span>
                             <span><input name="userBirthDate" type="text" class="textbox" value="07/06/13"></span>
                         </div>
                         <div>
-                            <span><label>ADDRESS</label></span>
+                            <span><label>${registration_address}</label></span>
                             <span><input name="userAddress" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>PHONE NUMBER</label></span>
+                            <span><label>${registration_phoneNumber}</label></span>
                             <span><input name="userPhoneNumber" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>EMAIL</label></span>
+                            <span><label>${registration_email}</label></span>
                             <span><input name="userEmail" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>LOGIN</label></span>
+                            <span><label>${registration_login}</label></span>
                             <span><input name="userLogin" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>PASSWORD</label></span>
+                            <span><label>${registration_password}</label></span>
                             <span><input name="userPassword" type="password" class="textbox"></span>
                         </div>
                         <div>
-                            <span><input  type="submit"  value="Sign Up"></span>
+                            <span><input  type="submit"  value=${registration_submit}></span>
                         </div>
                         <div>
-                            <span><input  class="login-reset" type="reset" value="Clear form"></span>
+                            <span><input  class="login-reset" type="reset" value=${registration_refresh}></span>
                         </div>
                     </form>
                 </div>
@@ -98,7 +98,7 @@
     <div class="wrap">
         <div class="footer">
             <div class="login-copy">
-                <p align="center" class="link"><span>If you already have account, use login form&nbsp;<a href="/jsp/common/login.jsp"> Login</a></span></p>
+                <p align="center" class="link"><span>${registration_footer}&nbsp;<a href="/jsp/common/login.jsp"> ${registration_registlink}</a></span></p>
             </div>
             <div class="login-copy">
                 <p align="center" class="link"><span>© 2015 All rights reserved | Druzenok Yury</span></p>

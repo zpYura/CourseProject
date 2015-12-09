@@ -2,8 +2,8 @@ package by.epam.dao.objects;
 
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.entities.Client;
+import by.epam.managers.DataBaseConfigurationManager;
 import by.epam.pool.ConnectionPool;
-import by.epam.settings.AppSettings;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.apache.log4j.Logger;
@@ -19,12 +19,12 @@ import java.util.List;
  * @author Yury Druzenok
  */
 public class ClientDAO extends AbstractDAO<Integer,Client> {
-    private static final String SQL_SELECT_ALL_CLIENTS = AppSettings.get("client.selectAll");
+    private static final String SQL_SELECT_ALL_CLIENTS = DataBaseConfigurationManager.get("client.selectAll");
     private static ConnectionPool pool;
-    private static final String SQL_SELECT_CLIENTS_BY_ID = AppSettings.get("client.selectById");
-    private static final String SQL_DELETE_CLIENTS_BY_ID = AppSettings.get("client.deleteById");
-    private static final String SQL_INSERT_CLIENTS = AppSettings.get("client.insert");
-    private static final String SQL_UPDATE_CLIENTS = AppSettings.get("client.update");
+    private static final String SQL_SELECT_CLIENTS_BY_ID = DataBaseConfigurationManager.get("client.selectById");
+    private static final String SQL_DELETE_CLIENTS_BY_ID = DataBaseConfigurationManager.get("client.deleteById");
+    private static final String SQL_INSERT_CLIENTS = DataBaseConfigurationManager.get("client.insert");
+    private static final String SQL_UPDATE_CLIENTS = DataBaseConfigurationManager.get("client.update");
     static{
         new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
     }

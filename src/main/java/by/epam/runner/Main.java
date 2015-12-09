@@ -2,18 +2,12 @@ package by.epam.runner;
 
 import by.epam.dao.factory.DAOFactory;
 import by.epam.entities.Client;
-import by.epam.enums.CommandType;
 import by.epam.enums.DataBaseType;
 //import by.epam.dao.mysql.MySQLDAOFactory;
 //import by.epam.dao.objects.RoomDAO;
-import by.epam.entities.Administrator;
-import by.epam.settings.AppSettings;
 
-import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.util.Date;
-import java.util.Locale;
 
 public class Main {
 

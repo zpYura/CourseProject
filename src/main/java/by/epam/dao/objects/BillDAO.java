@@ -2,8 +2,8 @@ package by.epam.dao.objects;
 
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.entities.Bill;
+import by.epam.managers.DataBaseConfigurationManager;
 import by.epam.pool.ConnectionPool;
-import by.epam.settings.AppSettings;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -19,12 +19,12 @@ import java.util.List;
  * @author Yury Druzenok
  */
 public class BillDAO extends AbstractDAO<Integer,Bill> {
-    private static final String SQL_SELECT_ALL_BILLS = AppSettings.get("bill.selectAll");
+    private static final String SQL_SELECT_ALL_BILLS = DataBaseConfigurationManager.get("bill.selectAll");
     private static ConnectionPool pool;
-    private static final String SQL_SELECT_BILLS_BY_ID = AppSettings.get("bill.selectById");
-    private static final String SQL_DELETE_BILLS_BY_ID = AppSettings.get("bill.deleteById");
-    private static final String SQL_INSERT_BILLS = AppSettings.get("bill.insert");
-    private static final String SQL_UPDATE_BILLS = AppSettings.get("bill.update");
+    private static final String SQL_SELECT_BILLS_BY_ID = DataBaseConfigurationManager.get("bill.selectById");
+    private static final String SQL_DELETE_BILLS_BY_ID = DataBaseConfigurationManager.get("bill.deleteById");
+    private static final String SQL_INSERT_BILLS = DataBaseConfigurationManager.get("bill.insert");
+    private static final String SQL_UPDATE_BILLS = DataBaseConfigurationManager.get("bill.update");
     static{
         new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
     }

@@ -1,6 +1,6 @@
 package by.epam.pool;
 
-import by.epam.settings.AppSettings;
+import by.epam.managers.DataBaseConfigurationManager;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import java.sql.Connection;
@@ -17,9 +17,9 @@ public class MySQLConnectionPool extends ConnectionPool {
 
     public MySQLConnectionPool() {
         mysqlDataSource = new MysqlDataSource();
-        mysqlDataSource.setUser(AppSettings.get("mysqldb.login"));
-        mysqlDataSource.setPassword(AppSettings.get("mysqldb.password"));
-        mysqlDataSource.setUrl(AppSettings.get("mysqldb.host"));
+        mysqlDataSource.setUser(DataBaseConfigurationManager.get("mysqldb.login"));
+        mysqlDataSource.setPassword(DataBaseConfigurationManager.get("mysqldb.password"));
+        mysqlDataSource.setUrl(DataBaseConfigurationManager.get("mysqldb.host"));
     }
 
     @Override

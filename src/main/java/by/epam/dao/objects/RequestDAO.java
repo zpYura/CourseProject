@@ -3,8 +3,8 @@ package by.epam.dao.objects;
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.enums.ApartmentType;
 import by.epam.entities.Request;
+import by.epam.managers.DataBaseConfigurationManager;
 import by.epam.pool.ConnectionPool;
-import by.epam.settings.AppSettings;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -20,12 +20,12 @@ import java.util.*;
  * @author Yury Druzenok
  */
 public class RequestDAO extends AbstractDAO<Integer,Request> {
-    private static final String SQL_SELECT_ALL_REQUESTS = AppSettings.get("request.selectAll");
+    private static final String SQL_SELECT_ALL_REQUESTS = DataBaseConfigurationManager.get("request.selectAll");
     private static ConnectionPool pool;
-    private static final String SQL_SELECT_REQUESTS_BY_ID = AppSettings.get("request.selectById");
-    private static final String SQL_DELETE_REQUESTS_BY_ID = AppSettings.get("request.deleteById");
-    private static final String SQL_INSERT_REQUESTS = AppSettings.get("request.insert");
-    private static final String SQL_UPDATE_REQUESTS = AppSettings.get("request.update");
+    private static final String SQL_SELECT_REQUESTS_BY_ID = DataBaseConfigurationManager.get("request.selectById");
+    private static final String SQL_DELETE_REQUESTS_BY_ID = DataBaseConfigurationManager.get("request.deleteById");
+    private static final String SQL_INSERT_REQUESTS = DataBaseConfigurationManager.get("request.insert");
+    private static final String SQL_UPDATE_REQUESTS = DataBaseConfigurationManager.get("request.update");
     static{
         new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
     }

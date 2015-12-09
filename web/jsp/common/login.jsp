@@ -1,4 +1,5 @@
-<%--
+<%@ page import="by.epam.managers.LanguageManager" %>
+<%@ page import="java.util.Locale" %><%--
   User: Druzenok yury
   Date: 07.12.2015
   Time: 9:04
@@ -10,6 +11,7 @@
 <head>
     <title>Login</title>
     <c:import url="/jsp/common/import.jsp"/>
+
 </head>
 <body>
 <%-- header --%>
@@ -41,22 +43,31 @@
         <div class="main">
             <div class="contact">
                 <div class="contact-form">
-                    <h2 class="login-header" align="center">Sign in</h2>
+                    <h2 class="login-header" align="center">${login_message}</h2>
                     <form method="post" action="/controller" class="login-form">
                         <input type="hidden" name="command" value="login" />
                         <div>
-                            <span><label>LOGIN</label></span>
+                            <span><label>${login_login}</label></span>
                             <span><input name="userLogin" type="text" class="textbox"></span>
                         </div>
                         <div>
-                            <span><label>PASSWORD</label></span>
+                            <span><label>${login_password}</label></span>
                             <span><input name="userPassword" type="password" class="textbox"></span>
                         </div>
                         <div>
-                            <span><input  type="submit"  value="Sign in"></span>
+                            <span><label>${login_language}</label></span>
+                            <select name="language" >
+                                <option value="en">${login_language_en}</option>
+                                <option value="ru">${login_language_ru}</option>
+                                <%--develop later--%>
+                                <%--<option value="es">Espanol</option>--%>
+                            </select>
                         </div>
                         <div>
-                            <span><input  class="login-reset" type="reset" value="Clear form"></span>
+                            <span><input  type="submit"  value=${login_submit}></span>
+                        </div>
+                        <div>
+                            <span><input  class="login-reset" type="reset" value=${login_refresh}></span>
                         </div>
                     </form>
                 </div>
@@ -70,7 +81,7 @@
     <div class="wrap">
         <div class="footer">
             <div class="login-copy">
-                <p align="center" class="link"><span>If you don't have account yet, use registration form&nbsp;<a href="/jsp/common/registration.jsp"> Sign Up</a></span></p>
+                <p align="center" class="link"><span>${login_footer}&nbsp;<a href="/jsp/common/registration.jsp"> ${login_registlink}</a></span></p>
             </div>
             <div class="login-copy">
                 <p align="center" class="link"><span>© 2015 All rights reserved | Druzenok Yury</span></p>

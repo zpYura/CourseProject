@@ -1,3 +1,5 @@
+<%@ page import="java.util.Locale" %>
+<%@ page import="by.epam.managers.LanguageManager" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -6,7 +8,7 @@
   Time: 11:33
   To change this template use File | Settings | File Templates.
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" session="true" %>
 <%--<html><head><title>JSP Timing</title></head>
 <body>
 <h5>Счетчик времени от запуска приложения до нажатия кнопки</h5>
@@ -167,6 +169,12 @@
 <%--</div>--%>
 <!--start footer -->
 <%--<c:import url="/jsp/common/footer.jsp" />--%>
+<%--<jsp:useBean id="ob" scope="session" class="by.epam.managers.LanguageManager" />--%>
+<%--${ob.formLogin(locale,sessionScope)}--%>
+<%
+	Locale current = Locale.getDefault();
+	LanguageManager.setLanguage(current,session);
+%>
 <jsp:forward page="jsp/common/login.jsp"/>
 </body>
 </html>

@@ -1,9 +1,7 @@
-package by.epam.settings;
+package by.epam.managers;
 
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
-import java.io.FileInputStream;
+
 import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 import java.util.Properties;
@@ -15,22 +13,23 @@ import java.util.ResourceBundle;
  * @version 1.0 22 Nov 2015
  * @author Yury Druzenok
  */
-public class AppSettings {
+public class DataBaseConfigurationManager {
     static Logger logger;
     private Properties dataBase;
     private ResourceBundle dbReourceBundle;
    // static ResourceBundle resourceBundle;
-    private static AppSettings singleton;
+
+    private static DataBaseConfigurationManager singleton;
 
     static {
-        singleton = new AppSettings();
+        singleton = new DataBaseConfigurationManager();
     }
 
-    private AppSettings() {
+    private DataBaseConfigurationManager() {
 //        FileInputStream fis = null;
 //        dataBase = new Properties();
 //        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
-//        logger = Logger.getLogger(AppSettings.class);
+//        logger = Logger.getLogger(DataBaseConfigurationManager.class);
 //        try {
 //            fis = new FileInputStream("resources/mysqlconfig.properties");
 //            dataBase.load(fis);

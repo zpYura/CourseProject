@@ -2,8 +2,8 @@ package by.epam.dao.objects;
 
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.entities.RoomGuide;
+import by.epam.managers.DataBaseConfigurationManager;
 import by.epam.pool.ConnectionPool;
-import by.epam.settings.AppSettings;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -19,12 +19,12 @@ import java.util.List;
  * @author Yury Druzenok
  */
 public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
-    private static final String SQL_SELECT_ALL_ROOM_GUIDE = AppSettings.get("roomGuide.selectAll");
+    private static final String SQL_SELECT_ALL_ROOM_GUIDE = DataBaseConfigurationManager.get("roomGuide.selectAll");
     private static ConnectionPool pool;
-    private static final String SQL_SELECT_ROOM_GUIDE_BY_ID = AppSettings.get("roomGuide.selectById");
-    private static final String SQL_DELETE_ROOM_GUIDE_BY_ID = AppSettings.get("roomGuide.deleteById");
-    private static final String SQL_INSERT_ROOM_GUIDE = AppSettings.get("roomGuide.insert");
-    private static final String SQL_UPDATE_ROOM_GUIDE = AppSettings.get("roomGuide.update");
+    private static final String SQL_SELECT_ROOM_GUIDE_BY_ID = DataBaseConfigurationManager.get("roomGuide.selectById");
+    private static final String SQL_DELETE_ROOM_GUIDE_BY_ID = DataBaseConfigurationManager.get("roomGuide.deleteById");
+    private static final String SQL_INSERT_ROOM_GUIDE = DataBaseConfigurationManager.get("roomGuide.insert");
+    private static final String SQL_UPDATE_ROOM_GUIDE = DataBaseConfigurationManager.get("roomGuide.update");
     static{
         new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
     }

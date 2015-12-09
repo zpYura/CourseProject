@@ -2,7 +2,6 @@ package by.epam.servlet;
 
 import by.epam.command.factory.ActionFactory;
 import by.epam.interfaces.ActionCommand;
-import by.epam.settings.AppSettings;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 
 /**
  * Created by zpYura on 02.12.2015.
