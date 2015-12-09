@@ -15,7 +15,7 @@
                     <li><a href="/jsp/client/main.jsp">${hotel}</a></li>
                     <li><a href="/jsp/client/rooms.jsp">${rooms}</a></li>
                     <li><a href="/jsp/client/reservation.jsp">${reservation}</a></li>
-                    <li><a href="/jsp/client/contact.jsp">${contact}</a></li>
+                    <%--<li><a href="/jsp/client/contact.jsp">${contact}</a></li>--%>
 				</ul>
 			</div>
 			<%--develop later--%>

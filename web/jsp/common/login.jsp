@@ -1,5 +1,4 @@
-<%@ page import="by.epam.managers.LanguageManager" %>
-<%@ page import="java.util.Locale" %><%--
+<%--
   User: Druzenok yury
   Date: 07.12.2015
   Time: 9:04
@@ -11,7 +10,6 @@
 <head>
     <title>Login</title>
     <c:import url="/jsp/common/import.jsp"/>
-
 </head>
 <body>
 <%-- header --%>
@@ -62,6 +60,9 @@
                                 <%--develop later--%>
                                 <%--<option value="es">Espanol</option>--%>
                             </select>
+                        </div>
+                        <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorLoginPassMessage}</label></span>
                         </div>
                         <div>
                             <span><input  type="submit"  value=${login_submit}></span>

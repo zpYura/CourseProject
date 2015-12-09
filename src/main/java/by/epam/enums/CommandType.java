@@ -1,5 +1,6 @@
 package by.epam.enums;
 
+import by.epam.command.BookCommand;
 import by.epam.command.LoginCommand;
 import by.epam.command.SignUpCommand;
 import by.epam.interfaces.ActionCommand;
@@ -24,6 +25,11 @@ public enum CommandType {
     SIGN_UP {
         {
             this.command = new SignUpCommand();
+        }
+    },
+    BOOK {
+        {
+            this.command = new BookCommand();
         }
     };
     ActionCommand command;

@@ -83,3 +83,4 @@ java.sql.SQLException: Field 'client_id' doesn't have a default value
 	at by.epam.runner.Main.main(Main.java:54)
 07.12.2015 19:00:20 [main] INFO  by.epam.dao.objects.ClientDAO - Client with id 5 was added
 07.12.2015 19:09:20 [main] INFO  by.epam.dao.objects.ClientDAO - Client with id 5 was added
+09.12.2015 22:08:08 [main] INFO  by.epam.dao.objects.AdministratorDAO - Administrator with id 5 was added

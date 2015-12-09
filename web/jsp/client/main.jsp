@@ -37,8 +37,8 @@
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <!-- Text title -->
-                        <h4 class="title"><i class="bg"></i>Lorem Ipsum is simply <span class="hide">dummy text</span></h4>
-                        <h5 class="title1"><i class="bg"></i>Morbi justo <span class="hide" >condimentum accumsan</span></h5>
+                        <h4 class="title"><i class="bg"></i>${main_page_slider1_message1} <span class="hide"></span></h4>
+                        <h5 class="title1"><i class="bg"></i>${main_page_slider1_message2} <span class="hide" ></span></h5>
                         <!-- /Text title -->
                     </div>
                 </div>
@@ -50,8 +50,8 @@
                 <div class="slide_content">
                     <div class="slide_content_wrap">
                         <!-- Text title -->
-                        <h4 class="title"><i class="bg"></i>Morbi justo <span class="hide"> condimentum </span>text</h4>
-                        <h5 class="title1"><i class="bg"></i>Lorem Ipsum is <span class="hide">simply dummy text</span> </h5>
+                        <h4 class="title"><i class="bg"></i>${main_page_slider2_message1}<span class="hide">  </span></h4>
+                        <h5 class="title1"><i class="bg"></i>${main_page_slider2_message2} <span class="hide"></span> </h5>
                         <!-- /Text title -->
                     </div>
                 </div>
@@ -134,33 +134,35 @@
         <div class="grids_of_3">
             <div class="grid1_of_3">
                 <div class="grid1_of_3_img">
-                    <a href="/jsp/client/details.jsp">
+                    <%--develop later--%>
+                    <a href="#">
                         <img src="/images/pic2.jpg" alt="" />
                         <span class="next"> </span>
                     </a>
                 </div>
-                <h4><a href="#">single room<span>120$</span></a></h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <h4><a href="#">${main_page_room_for_one}<span>120$</span></a></h4>
+                <p>${main_page_room_for_one_description}</p>
             </div>
             <div class="grid1_of_3">
                 <div class="grid1_of_3_img">
-                    <a href="/jsp/client/details.jsp">
+                    <%--develop later--%>
+                    <a href="#">
                         <img src="/images/pic1.jpg" alt="" />
                         <span class="next"> </span>
                     </a>
                 </div>
-                <h4><a href="#">double room<span>180$</span></a></h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <h4><a href="#">${main_page_room_for_two}<span>180$</span></a></h4>
+                <p>${main_page_room_for_two_description}</p>
             </div>
             <div class="grid1_of_3">
                 <div class="grid1_of_3_img">
-                    <a href="/jsp/client/details.jsp">
+                    <a href="#">
                         <img src="/images/pic3.jpg" alt="" />
                         <span class="next"> </span>
                     </a>
                 </div>
-                <h4><a href="#">suite room<span>210$</span></a></h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <h4><a href="#">${main_page_suite}<span>210$</span></a></h4>
+                <p>${main_page_suite_description}</p>
             </div>
             <div class="clear"></div>
         </div>

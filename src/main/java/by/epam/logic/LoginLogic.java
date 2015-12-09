@@ -23,8 +23,8 @@ public class LoginLogic {
     }
     static Logger logger = Logger.getLogger(SigUpLogic.class);
 
-    public static boolean checkLogin(String login, String password){
-        boolean success = false;
+    public static int checkLogin(String login, String password){
+        int id = -1;
         DAOFactory dao = DAOFactory.getDAOFactory(DataBaseType.MYSQL);
         try{
             List<Client> clients = dao.getClientDAO().findAll();
@@ -32,7 +32,7 @@ public class LoginLogic {
             {
                 if(c.getLogin().equals(login)&&c.getPassword().equals(password))
                 {
-                    success = true;
+                    id = c.getId();
                 }
             }
 
@@ -42,6 +42,7 @@ public class LoginLogic {
             logger.error("SQL exception (request or table failed):", exp);
         }
 
-        return success;
+        return id;
     }
+
 }

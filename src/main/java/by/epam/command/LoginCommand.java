@@ -3,6 +3,7 @@ package by.epam.command;
 import by.epam.interfaces.ActionCommand;
 import by.epam.logic.LoginLogic;
 import by.epam.managers.LanguageManager;
+import by.epam.managers.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
@@ -30,9 +31,11 @@ public class LoginCommand implements ActionCommand {
         String pass = request.getParameter(PARAM_NAME_PASSWORD);
         String language = request.getParameter(PARAM_NAME_LANGUAGE);
         // проверка логина и пароля
-        if (LoginLogic.checkLogin(login, pass)) {
+        int id = LoginLogic.checkLogin(login, pass);
+        if (id != -1) {
             //request.setAttribute("user", login);
             request.getSession().setAttribute("user", login);
+            request.getSession().setAttribute("userId", id);
             if(language.equals(RUSSIAN))
             {
                 current = new Locale("ru","RU");
@@ -41,14 +44,19 @@ public class LoginCommand implements ActionCommand {
             {
                 current = new Locale("en","US");
             }
-            LanguageManager.formMenu(current,request.getSession());
+            LanguageManager.setLanguage(current,request.getSession());
         // определение пути к main.jsp
             //page = ConfigurationManager.getProperty("path.page.main");
             page = "/jsp/client/main.jsp";
         } else {
-//            request.setAttribute("errorLoginPassMessage",
-//                    MessageManager.getProperty("message.loginerror"));
-//            page = ConfigurationManager.getProperty("path.page.login");
+            try {
+                request.setAttribute("errorLoginPassMessage",
+                        MessageManager.getProperty("login_error"));
+                page = "/jsp/common/login.jsp";
+            }
+            catch (UnsupportedEncodingException e){
+                System.err.println(e.getMessage());
+            }
         }
         return page;
     }

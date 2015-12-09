@@ -20,7 +20,7 @@
 				<li><a href="/jsp/client/reservation.jsp">${reservation}</a></li> |
 				<%--develop later--%>
 				<%--<li><a href="/jsp/client/activities.jsp">activities</a></li> |--%>
-				<li><a href="/jsp/client/contact.jsp">${contact}</a></li>
+				<%--<li><a href="/jsp/client/contact.jsp">${contact}</a></li>--%>
 				<div class="clear"></div>
 			</ul>
 			<%--develop later--%>

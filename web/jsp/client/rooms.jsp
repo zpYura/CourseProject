@@ -14,15 +14,15 @@
 	<div class="main">
 		<div class="content">
 			<div class="room">
-				<h4>hill view room</h4>
-				<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat.</p>
+				<h4>${room_page_header}</h4>
+				<p class="para">${room_page_first_description}</p>
 			</div>
 				<div class="grids_of_2">
 					<div class="grids_of_img">
 						<img src="/images/pic4.jpg" alt=""/>
 					</div>
 					<div class="grids_of_para">
-						<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat.</p>
+					<p class="para">${room_page_second_description}</p>
 					</div>
 					<div class="clear"></div>					
 				</div>
@@ -31,7 +31,7 @@
 						<img src="/images/pic5.jpg" alt=""/>
 					</div>
 					<div class="grids_of_para">
-						<p class="para">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat.</p>
+					<p class="para">${room_page_third_description}</p>
 					</div>
 					<div class="clear"></div>					
 				</div>						
@@ -39,19 +39,19 @@
 		</div>
 		<div class="sidebar">
 			 <div class="date_btn">
-				<form>
-					<input type="submit" value="book now" style="width: 82px;">
+				<form action="reservation.jsp">
+					<input type="submit" value="${room_page_button}" style="width: 82px;">
 				</form>
 			</div>
-			<h4>room features</h4>
+			<h4>${room_page_features_description}</h4>
 			<ul class="s_nav">
-				<li><a href="#">laptop-size safe</a></li>
-				<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-				<li><a href="#">Etiam malesuada leo ornare</a></li>
-				<li><a href="#">Sed eu magna sed lorem tincidunt</a></li>
-				<li><a href="#">Proin id diam eleifend neque auctor scelerisque.</a></li>
+				<li><a href="#">${room_page_feature1}</a></li>
+				<li><a href="#">${room_page_feature2}</a></li>
+				<li><a href="#">${room_page_feature3}</a></li>
+				<li><a href="#">${room_page_feature4}</a></li>
+				<li><a href="#">${room_page_feature5}</a></li>
 			</ul>
-			<h4>we accept</h4>
+			<h4>${room_page_accepts}</h4>
 			<ul class="s_nav1">
 				<li><a class="icon1" href="#"></a></li>
 				<li><a class="icon2" href="#"></a></li>

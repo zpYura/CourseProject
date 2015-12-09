@@ -12,72 +12,77 @@
 <div class="main_bg">
 <div class="wrap">
 	<div class="main">
+		<form action="/controller">
+			<input type="hidden" name="command" value="book" />
 		<div class="res_online">
-			<h4>basic information</h4>
-			<p class="para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-		</div>			
+			<h4>${reservation_page_header}</h4>
+			<p class="para">${reservation_page_message}</p>
+		</div>
 			<div class="span_of_2">
 				<div class="span2_of_1">
-					<h4>check-in:</h4>
+					<h4>${reservation_page_check_in}:</h4>
 					<div class="book_date btm">
-						<form>
-							<input class="date" id="datepicker1" type="text" value="DD/MM/YY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DD/MM/YY';}">
-						</form>
+						<%--<form>--%>
+							<input name="check_in" class="date" id="datepicker" type="text" value="${reservation_page_year_type}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '${reservation_page_year_type}';}">
+						<%--</form>--%>
 					</div>	
 					<div class="sel_room">
-						<h4>number of rooms</h4>
-						<select id="country" onchange="change_country(this.value)" class="frm-field required">
-							<option value="null">Select a type of Room</option>
-				            <option value="null">Suite room</option>         
-				            <option value="AX">Single room</option>
-							<option value="AX">Double room</option>
+						<h4>${reservation_page_room_type}</h4>
+						<select id="country" name="roomType" onchange="change_country(this.value)" class="frm-field required">
+							<option value="null">${reservation_page_select_message}</option>
+				            <option value="SINGLE_ROOM">${main_page_room_for_one}</option>
+				            <option value="DOUBLE_ROOM">${main_page_room_for_two}</option>
+							<option value="SUITE_ROOM">${main_page_suite}</option>
 		        		</select>
 					</div>	
 					<div class="sel_room left">
-						<h4>adults per room:</h4>
-						<select id="country" onchange="change_country(this.value)" class="frm-field required">
-							<option value="null">1</option>
-				            <option value="null">2</option>         
-				            <option value="AX">3</option>
-							<option value="AX">4</option>
+						<h4>${reservation_page_number_of_rooms}:</h4>
+						<select id="country"  name="numberOfRooms" onchange="change_country(this.value)" class="frm-field required">
+							<option value="1">1</option>
+				            <option value="2">2</option>
+				            <option value="3">3</option>
+							<option value="4">4</option>
 		        		</select>
 					</div>	
 				</div>
 				<div class="span2_of_1">
-					<h4>check-out:</h4>
+					<h4>${reservation_page_check_out}:</h4>
 					<div class="book_date btm">
-						<form>
-							<input class="date" id="datepicker1" type="text" value="DD/MM/YY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DD/MM/YY';}">
-						</form>
+						<%--<form>--%>
+							<input name="check_out" class="date" id="datepicker1" type="text" value="${reservation_page_year_type}" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '${reservation_page_year_type}';}">
+						<%--</form>--%>
 					</div>	
 					<div class="sel_room">
-						<h4>childern 0-5:</h4>
-						<select id="country" onchange="change_country(this.value)" class="frm-field required">
-							<option value="null">0</option>
-							<option value="null">1</option>
-				            <option value="null">2</option>         
-				            <option value="AX">3</option>
-							<option value="AX">4</option>
-		        		</select>
+						<h4>${reservation_page_max_cost}:</h4>
+						<input name="maxCost" type="text" class="textbox">
+						<%--<select id="country" onchange="change_country(this.value)" class="frm-field required">--%>
+							<%--<option value="null">0</option>--%>
+							<%--<option value="null">1</option>--%>
+				            <%--<option value="null">2</option>         --%>
+				            <%--<option value="AX">3</option>--%>
+							<%--<option value="AX">4</option>--%>
+		        		<%--</select>--%>
 					</div>	
 					<div class="sel_room left">
-						<h4>childern 6-12:</h4>
-						<select id="country" onchange="change_country(this.value)" class="frm-field required">
-							<option value="null">0</option>
-							<option value="null">1</option>
-				            <option value="null">2</option>         
-				            <option value="AX">3</option>
-							<option value="AX">4</option>
-		        		</select>
+						<h4>${reservation_page_min_cost}:</h4>
+						<input name="minCost" type="text" class="textbox">
+						<%--<select id="country" onchange="change_country(this.value)" class="frm-field required">--%>
+							<%--<option value="null">0</option>--%>
+							<%--<option value="null">1</option>--%>
+				            <%--<option value="null">2</option>         --%>
+				            <%--<option value="AX">3</option>--%>
+							<%--<option value="AX">4</option>--%>
+		        		<%--</select>--%>
 					</div>	
 				</div>
 				<div class="clear"></div>
 			</div>
-			<div class="res_btn">
-				<form>
-					<input type="submit" value="book now" style="width: 280px;">
-				</form>
+			<div >
+				<%--<form>--%>
+					<input type="submit" value="${reservation_page_submit_button}" class="reservation_but">
+				<%--</form>--%>
 			</div>
+			</form>
 	</div>
 </div>
 </div>

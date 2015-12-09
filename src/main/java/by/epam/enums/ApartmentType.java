@@ -7,8 +7,7 @@ package by.epam.enums;
  * @author Yury Druzenok
  */
 public enum ApartmentType {
-    STANDART,
-    BUSINESS,
-    JUNIOR_SUITE,
-    SUITE;
+    SINGLE_ROOM,
+    DOUBLE_ROOM,
+    SUITE_ROOM
 }

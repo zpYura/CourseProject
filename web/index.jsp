@@ -171,6 +171,7 @@
 <%--<c:import url="/jsp/common/footer.jsp" />--%>
 <%--<jsp:useBean id="ob" scope="session" class="by.epam.managers.LanguageManager" />--%>
 <%--${ob.formLogin(locale,sessionScope)}--%>
+
 <%
 	Locale current = Locale.getDefault();
 	LanguageManager.setLanguage(current,session);

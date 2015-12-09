@@ -1,12 +1,14 @@
 package by.epam.runner;
 
 import by.epam.dao.factory.DAOFactory;
+import by.epam.entities.Administrator;
 import by.epam.entities.Client;
 import by.epam.enums.DataBaseType;
 //import by.epam.dao.mysql.MySQLDAOFactory;
 //import by.epam.dao.objects.RoomDAO;
 
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.Date;
 
 public class Main {
@@ -42,16 +44,16 @@ public class Main {
 //            else
 //            { System.out.print("Empty");
 //            }
-          Client client = new Client(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525","mai;@", "dwwdw", "asas");
+         // Client client = new Client(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525","mai;@", "dwwdw", "asas");
 
            // dao.getClientDAO().update(client);
-           dao.getClientDAO().create(client);
+           //dao.getClientDAO().create(client);
             //dao.getClientDAO().delete(client);
            // dao.getClientDAO().delete(Integer.valueOf(1));
             //dao.getClientDAO().delete(Integer.valueOf(2));
             //dao.getClientDAO().delete(Integer.valueOf(3));
-         //  Administrator client = new Administrator(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525", Date.from(Instant.now()),"gfg","ffd");
-          //  dao.getAdministratorDAO().create(client);
+           Administrator client = new Administrator(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525", Date.from(Instant.now()),"gfg","ffd");
+           dao.getAdministratorDAO().create(client);
         }
         catch (SQLException exp){
             System.err.print(exp.getMessage());

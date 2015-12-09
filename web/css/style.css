@@ -576,12 +576,12 @@ p.para{
 .book_date.btm{
 	margin-bottom: 15px;
 }
-.res_btn{
-	text-align: center;
-	display: block;
-	margin-bottom: 4%;
-}
-.res_btn form input[type="submit"] {
+/*.res_btn{*/
+	/*text-align: center;*/
+	/*display: block;*/
+	/*margin-bottom: 4%;*/
+/*}*/
+.reservation_but {
 	display: inline-block;
 	text-transform: capitalize;
 	width: 25% !important;
@@ -598,10 +598,12 @@ p.para{
 	outline: none;
 	cursor: pointer;
 	-webkit-appearance: none;
+	text-align: center;
+	margin: 0 37% 0 37%;
 }
-.res_btn form input[type="submit"]:hover{
-	background: #228AC6;
-}
+/*.res_btn form input[type="submit"]:hover{*/
+	/*background: #228AC6;*/
+/*}*/
 
 /* start portfolio page */
 .service_list{
@@ -770,6 +772,21 @@ span.next:hover {
 	border: 1px solid rgb(224, 224, 224);
 	-webkit-appearance: none;
 }
+
+.textbox{
+	font-family: 'Open Sans', sans-serif;
+	margin-top: 5px;
+	padding: 10px;
+	display: block;
+	width: 98% !important;
+	background: rgba(255, 255, 255, 1);
+	outline: none;
+	color: #555555;
+	font-size: 1em;
+	border: 1px solid rgb(224, 224, 224);
+	-webkit-appearance: none;
+}
+
 .contact-form input[type="password"],.contact-form textarea{
 	font-family: 'Open Sans', sans-serif;
 	margin-top: 5px;
@@ -1085,8 +1102,22 @@ span.next:hover {
 		width: 48.33333%;
 	}
 	.res_btn form input[type="submit"] {
+		/*width: 50% !important;*/
+		/*padding: 10px;*/
+		text-transform: capitalize;
 		width: 50% !important;
-		padding: 10px;
+		background: #32A2E3;
+		font-family: 'Open Sans', sans-serif;
+		color: #FFF;
+		padding: 8px;
+		border: none;
+		font-size: 1em;
+		transition: 0.5s all;
+		-webkit-transition: 0.5s all;
+		-moz-transition: 0.5s all;
+		-o-transition: 0.5s all;
+		outline: none;
+		cursor: pointer;
 	}
 	.contact_left {
 		float: none;
