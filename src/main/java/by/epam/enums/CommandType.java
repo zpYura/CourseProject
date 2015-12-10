@@ -1,6 +1,7 @@
 package by.epam.enums;
 
 import by.epam.command.BookCommand;
+import by.epam.command.LogOutCommand;
 import by.epam.command.LoginCommand;
 import by.epam.command.SignUpCommand;
 import by.epam.interfaces.ActionCommand;
@@ -19,7 +20,7 @@ public enum CommandType {
     },
     LOGOUT {
         {
-//            this.command = new LogoutCommand();
+            this.command = new LogOutCommand();
         }
     },
     SIGN_UP {

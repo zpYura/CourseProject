@@ -2,7 +2,7 @@ package by.epam.dao.objects;
 
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.entities.Administrator;
-import by.epam.managers.DataBaseConfigurationManager;
+import by.epam.managers.ConfigurationManager;
 import by.epam.pool.ConnectionPool;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -20,17 +20,17 @@ import java.util.List;
  */
 public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
     // keep string of select request
-    private static final String SQL_SELECT_ALL_ADMINISTRATORS = DataBaseConfigurationManager.get("admin.selectAll");
+    private static final String SQL_SELECT_ALL_ADMINISTRATORS = ConfigurationManager.get("admin.selectAll");
     // connection pool link
     private static ConnectionPool pool;
     // keep string of select by id request
-    private static final String SQL_SELECT_ADMINISTRATORS_BY_ID = DataBaseConfigurationManager.get("admin.selectById");
+    private static final String SQL_SELECT_ADMINISTRATORS_BY_ID = ConfigurationManager.get("admin.selectById");
     // keep string of delete by id request
-    private static final String SQL_DELETE_ADMINISTRATORS_BY_ID = DataBaseConfigurationManager.get("admin.deleteById");
+    private static final String SQL_DELETE_ADMINISTRATORS_BY_ID = ConfigurationManager.get("admin.deleteById");
     // keep string of insert request
-    private static final String SQL_INSERT_ADMINISTRATORS = DataBaseConfigurationManager.get("admin.insert");
+    private static final String SQL_INSERT_ADMINISTRATORS = ConfigurationManager.get("admin.insert");
     // keep string of update request
-    private static final String SQL_UPDATE_ADMINISTRATORS = DataBaseConfigurationManager.get("admin.update");
+    private static final String SQL_UPDATE_ADMINISTRATORS = ConfigurationManager.get("admin.update");
 
     public AdministratorDAO(ConnectionPool pool){
         this.pool= pool;

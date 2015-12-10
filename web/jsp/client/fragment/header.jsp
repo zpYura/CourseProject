@@ -13,16 +13,20 @@
 		</div>
 		<div class="h_right">
 			<!--start menu -->
+
 			<ul class="menu">
 				<li class="active"> ${hello}, ${user}</li> |
+				<li><a href="/controller?command=logout" >${exit}</a></li>
+				<li></li>
 				<li><a href="/jsp/client/main.jsp">${hotel}</a></li> |
 				<li><a href="/jsp/client/rooms.jsp">${rooms}</a></li> |
 				<li><a href="/jsp/client/reservation.jsp">${reservation}</a></li> |
 				<%--develop later--%>
 				<%--<li><a href="/jsp/client/activities.jsp">activities</a></li> |--%>
 				<%--<li><a href="/jsp/client/contact.jsp">${contact}</a></li>--%>
-				<div class="clear"></div>
+				<div class="clear" align="center" style="color: #1c2eff;"><p>${book_result_message}</p></div>
 			</ul>
+
 			<%--develop later--%>
 			<!-- start profile_details -->
 					<%--<form class="style-1 drp_dwn"  >--%>

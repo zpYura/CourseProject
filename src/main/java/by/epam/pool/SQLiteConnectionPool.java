@@ -1,6 +1,6 @@
 package by.epam.pool;
 
-import by.epam.managers.DataBaseConfigurationManager;
+import by.epam.managers.ConfigurationManager;
 import org.sqlite.SQLiteDataSource;
 
 import java.sql.Connection;
@@ -17,7 +17,7 @@ public class SQLiteConnectionPool extends ConnectionPool {
 
     public SQLiteConnectionPool() {
         sqLiteDataSource = new SQLiteDataSource();
-        sqLiteDataSource.setUrl(DataBaseConfigurationManager.get("sqlitedb.host"));
+        sqLiteDataSource.setUrl(ConfigurationManager.get("sqlitedb.host"));
     }
 
     @Override

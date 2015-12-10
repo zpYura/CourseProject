@@ -49,16 +49,28 @@
                             <span><input name="userLastName" type="text" class="textbox"></span>
                         </div>
                         <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationLastName}</label></span>
+                        </div>
+                        <div>
                             <span><label>${registration_firstName}</label></span>
                             <span><input name="userFirstName" type="text" class="textbox"></span>
+                        </div>
+                        <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationFirstName}</label></span>
                         </div>
                         <div>
                             <span><label>${registration_middleName}</label></span>
                             <span><input name="userMiddleName" type="text" class="textbox"></span>
                         </div>
                         <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationMiddleName}</label></span>
+                        </div>
+                        <div>
                             <span><label>${registration_birthDate}</label></span>
                             <span><input name="userBirthDate" type="text" class="textbox" value="07/06/13"></span>
+                        </div>
+                        <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationDate}</label></span>
                         </div>
                         <div>
                             <span><label>${registration_address}</label></span>
@@ -69,16 +81,28 @@
                             <span><input name="userPhoneNumber" type="text" class="textbox"></span>
                         </div>
                         <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationPhoneNumber}</label></span>
+                        </div>
+                        <div>
                             <span><label>${registration_email}</label></span>
                             <span><input name="userEmail" type="text" class="textbox"></span>
+                        </div>
+                        <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationEmail}</label></span>
                         </div>
                         <div>
                             <span><label>${registration_login}</label></span>
                             <span><input name="userLogin" type="text" class="textbox"></span>
                         </div>
                         <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationLogin}</label></span>
+                        </div>
+                        <div>
                             <span><label>${registration_password}</label></span>
                             <span><input name="userPassword" type="password" class="textbox"></span>
+                        </div>
+                        <div>
+                            <span align="center" style="color: #cd0a0a"><label>${errorRegistrationEmpty}</label></span>
                         </div>
                         <div>
                             <span><input  type="submit"  value=${registration_submit}></span>

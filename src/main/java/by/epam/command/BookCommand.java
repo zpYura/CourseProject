@@ -4,12 +4,16 @@ import by.epam.entities.Request;
 import by.epam.enums.ApartmentType;
 import by.epam.interfaces.ActionCommand;
 import by.epam.logic.BookLogic;
+import by.epam.managers.ConfigurationManager;
+import by.epam.managers.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.IllegalFormatException;
+import java.util.UnknownFormatConversionException;
 
 /**
  * Created by zpYura on 09.12.2015.
@@ -23,8 +27,9 @@ public class BookCommand implements ActionCommand {
     private static final String PARAM_NAME_MIN_COST = "minCost";
 
     public String execute(HttpServletRequest request) {
+        boolean flag = false;
         String page = null;
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yy");
         // get parameters
         int number_of_rooms = 0;
         int maxCost = 0;
@@ -44,11 +49,21 @@ public class BookCommand implements ActionCommand {
         }
         catch (ParseException e) {
             System.err.println(e.getMessage());
+            flag = true;
         }
         Request bookRequest = new Request(-1,number_of_rooms, type, inDate, outDate, maxCost, minCost, id, 1);
-        if(BookLogic.createRequest(bookRequest))
-            page = "/jsp/client/main.jsp";
+        try{
+            if(!flag && BookLogic.createRequest(bookRequest))
+                request.setAttribute("book_result_message", MessageManager.getProperty(request.getLocale(),"book_page_true"));
+            else{
+                request.setAttribute("book_result_message", MessageManager.getProperty(request.getLocale(),"book_page_false"));
+            }
 
+        }
+        catch (UnsupportedEncodingException e) {
+            System.err.println(e.getMessage());
+        }
+            page = ConfigurationManager.get("page_client_main");
         return page;
     }
 }

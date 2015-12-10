@@ -45,4 +45,25 @@ public class LoginLogic {
         return id;
     }
 
+    public static boolean checkLogin(String login){
+        boolean success = false;
+        DAOFactory dao = DAOFactory.getDAOFactory(DataBaseType.MYSQL);
+        try{
+            List<Client> clients = dao.getClientDAO().findAll();
+            for(Client c:clients)
+            {
+                if(c.getLogin().equals(login))
+                {
+                    success = true;
+                }
+            }
+
+        }
+        catch (SQLException exp){
+            System.err.print(exp.getMessage());
+            logger.error("SQL exception (request or table failed):", exp);
+        }
+
+        return success;
+    }
 }

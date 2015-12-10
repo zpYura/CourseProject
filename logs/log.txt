@@ -4,13 +4,13 @@
 24.11.2015 21:11:59 [main] INFO  by.epam.dao.objects.ClientDAO - Client with id 1 was deleted
 24.11.2015 21:11:59 [main] INFO  by.epam.dao.objects.ClientDAO - Client with id 2 was deleted
 24.11.2015 21:11:59 [main] INFO  by.epam.dao.objects.ClientDAO - Client with id 3 was deleted
-30.11.2015 19:59:24 [main] ERROR by.epam.managers.DataBaseConfigurationManager - File not found exception:
+30.11.2015 19:59:24 [main] ERROR by.epam.managers.ConfigurationManager - File not found exception:
 java.util.MissingResourceException: Can't find bundle for base name mysqlconfig, locale ru_RU
 	at java.util.ResourceBundle.throwMissingResourceException(ResourceBundle.java:1564)
 	at java.util.ResourceBundle.getBundleImpl(ResourceBundle.java:1387)
 	at java.util.ResourceBundle.getBundle(ResourceBundle.java:845)
-	at by.epam.managers.DataBaseConfigurationManager.<init>(AppSettings.java:27)
-	at by.epam.managers.DataBaseConfigurationManager.<clinit>(AppSettings.java:38)
+	at by.epam.managers.ConfigurationManager.<init>(AppSettings.java:27)
+	at by.epam.managers.ConfigurationManager.<clinit>(AppSettings.java:38)
 	at by.epam.dao.objects.ClientDAO.<clinit>(MySQLClientDAO.java:22)
 	at by.epam.dao.mysql.MySQLDAOFactory.getClientDAO(MySQLDAOFactory.java:11)
 	at by.epam.runner.Main.main(Main.java:45)
@@ -19,13 +19,13 @@ java.util.MissingResourceException: Can't find bundle for base name mysqlconfig,
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:497)
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)
-30.11.2015 20:00:57 [main] ERROR by.epam.managers.DataBaseConfigurationManager - File not found exception:
+30.11.2015 20:00:57 [main] ERROR by.epam.managers.ConfigurationManager - File not found exception:
 java.util.MissingResourceException: Can't find bundle for base name mysqlconfig, locale ru_RU
 	at java.util.ResourceBundle.throwMissingResourceException(ResourceBundle.java:1564)
 	at java.util.ResourceBundle.getBundleImpl(ResourceBundle.java:1387)
 	at java.util.ResourceBundle.getBundle(ResourceBundle.java:845)
-	at by.epam.managers.DataBaseConfigurationManager.<init>(AppSettings.java:27)
-	at by.epam.managers.DataBaseConfigurationManager.<clinit>(AppSettings.java:38)
+	at by.epam.managers.ConfigurationManager.<init>(AppSettings.java:27)
+	at by.epam.managers.ConfigurationManager.<clinit>(AppSettings.java:38)
 	at by.epam.dao.objects.ClientDAO.<clinit>(MySQLClientDAO.java:22)
 	at by.epam.dao.mysql.MySQLDAOFactory.getClientDAO(MySQLDAOFactory.java:11)
 	at by.epam.runner.Main.main(Main.java:45)
