@@ -1,9 +1,6 @@
 package by.epam.enums;
 
-import by.epam.command.BookCommand;
-import by.epam.command.LogOutCommand;
-import by.epam.command.LoginCommand;
-import by.epam.command.SignUpCommand;
+import by.epam.command.*;
 import by.epam.interfaces.ActionCommand;
 
 /**
@@ -31,6 +28,31 @@ public enum CommandType {
     BOOK {
         {
             this.command = new BookCommand();
+        }
+    },
+    REQUEST_ALL {
+        {
+            this.command = new RequestsPageOnLoadCommand();
+        }
+    },
+    REQUEST_SEARCH {
+        {
+            this.command = new SearchRequestsCommand();
+        }
+    },
+    ROOMS_ALL {
+        {
+            this.command = new RoomsPageOnLoadCommand();
+        }
+    },
+    BILLS_ALL {
+        {
+            this.command = new BillsPageOnLoadCommand();
+        }
+    },
+    COMPUTE_REQUEST {
+        {
+            this.command = new ComputeRequestCommand();
         }
     };
     ActionCommand command;

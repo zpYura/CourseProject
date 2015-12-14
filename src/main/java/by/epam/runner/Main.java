@@ -3,11 +3,15 @@ package by.epam.runner;
 import by.epam.dao.factory.DAOFactory;
 import by.epam.entities.Administrator;
 import by.epam.entities.Client;
+import by.epam.entities.Room;
+import by.epam.enums.ApartmentType;
 import by.epam.enums.DataBaseType;
 //import by.epam.dao.mysql.MySQLDAOFactory;
 //import by.epam.dao.objects.RoomDAO;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
 
@@ -52,11 +56,18 @@ public class Main {
            // dao.getClientDAO().delete(Integer.valueOf(1));
             //dao.getClientDAO().delete(Integer.valueOf(2));
             //dao.getClientDAO().delete(Integer.valueOf(3));
-           Administrator client = new Administrator(5,"Kfdfk", "Kekk", "Kokk", new Date(100000), "street", "25525", Date.from(Instant.now()),"gfg","ffd");
-           dao.getAdministratorDAO().create(client);
+//           Administrator client = new Administrator(5,"Главатский", "Никита", "Юрьевич", new Date(100000), "street", "25525", Date.from(Instant.now()),"admin","admin");
+//           dao.getAdministratorDAO().create(client);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+             Date birthDate = formatter.parse("17/12/15");
+            Room room = new Room(1,1, ApartmentType.DOUBLE_ROOM, 120,birthDate);
+            dao.getRoomDAO().create(room);
         }
         catch (SQLException exp){
             System.err.print(exp.getMessage());
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
         }
     }
 }

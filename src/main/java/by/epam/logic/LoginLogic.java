@@ -18,6 +18,7 @@ import java.util.List;
  * @author Yury Druzenok
  */
 public class LoginLogic {
+    public static boolean isAdmin = false;
     static{
         new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
     }
@@ -28,11 +29,20 @@ public class LoginLogic {
         DAOFactory dao = DAOFactory.getDAOFactory(DataBaseType.MYSQL);
         try{
             List<Client> clients = dao.getClientDAO().findAll();
+            List<Administrator> administrators = dao.getAdministratorDAO().findAll();
             for(Client c:clients)
             {
                 if(c.getLogin().equals(login)&&c.getPassword().equals(password))
                 {
                     id = c.getId();
+                }
+            }
+            for(Administrator c:administrators)
+            {
+                if(c.getLogin().equals(login)&&c.getPassword().equals(password))
+                {
+                    id = c.getId();
+                    isAdmin = true;
                 }
             }
 
@@ -50,6 +60,8 @@ public class LoginLogic {
         DAOFactory dao = DAOFactory.getDAOFactory(DataBaseType.MYSQL);
         try{
             List<Client> clients = dao.getClientDAO().findAll();
+            List<Administrator> administrators = dao.getAdministratorDAO().findAll();
+
             for(Client c:clients)
             {
                 if(c.getLogin().equals(login))
@@ -58,6 +70,13 @@ public class LoginLogic {
                 }
             }
 
+            for(Administrator c:administrators)
+            {
+                if(c.getLogin().equals(login))
+                {
+                    success = true;
+                }
+            }
         }
         catch (SQLException exp){
             System.err.print(exp.getMessage());

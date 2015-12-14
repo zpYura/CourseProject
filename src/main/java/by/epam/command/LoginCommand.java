@@ -53,6 +53,10 @@ public class LoginCommand implements ActionCommand {
             }
             LanguageManager.setLanguage(current,request.getSession());
             // определение пути к main.jsp
+            if(LoginLogic.isAdmin){
+                page = ConfigurationManager.get("page_admin_main");
+            }
+            else
             page = ConfigurationManager.get("page_client_main");
         } else {
             try {

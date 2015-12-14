@@ -51,7 +51,7 @@ public class BookCommand implements ActionCommand {
             System.err.println(e.getMessage());
             flag = true;
         }
-        Request bookRequest = new Request(-1,number_of_rooms, type, inDate, outDate, maxCost, minCost, id, 1);
+        Request bookRequest = new Request(-1,number_of_rooms, type, inDate, outDate, maxCost, minCost, id, -1);
         try{
             if(!flag && BookLogic.createRequest(bookRequest))
                 request.setAttribute("book_result_message", MessageManager.getProperty(request.getLocale(),"book_page_true"));
