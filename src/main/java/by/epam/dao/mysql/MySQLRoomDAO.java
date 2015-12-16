@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * Override methods to work with room's table in MySQl data base
  *
- * @version 1.0 1 Dec 2015
  * @author Yury Druzenok
+ * @version 1.0 1 Dec 2015
  */
 public class MySQLRoomDAO extends AbstractDAO<Integer, Room> {
     @Override
@@ -21,26 +21,26 @@ public class MySQLRoomDAO extends AbstractDAO<Integer, Room> {
 
     @Override
     public Room findEntityById(Integer id) throws SQLException {
-        return  new RoomDAO(MySQLDAOFactory.pool).findEntityById(id);
+        return new RoomDAO(MySQLDAOFactory.pool).findEntityById(id);
     }
 
     @Override
     public boolean delete(Integer id) throws SQLException {
-        return  new RoomDAO(MySQLDAOFactory.pool).delete(id);
+        return new RoomDAO(MySQLDAOFactory.pool).delete(id);
     }
 
     @Override
     public boolean delete(Room entity) throws SQLException {
-        return  new RoomDAO(MySQLDAOFactory.pool).delete(entity);
+        return new RoomDAO(MySQLDAOFactory.pool).delete(entity);
     }
 
     @Override
     public boolean create(Room entity) throws SQLException {
-        return  new RoomDAO(MySQLDAOFactory.pool).create(entity);
+        return new RoomDAO(MySQLDAOFactory.pool).create(entity);
     }
 
     @Override
     public boolean update(Room entity) throws SQLException {
-        return  new RoomDAO(MySQLDAOFactory.pool).update(entity);
+        return new RoomDAO(MySQLDAOFactory.pool).update(entity);
     }
 }

@@ -6,8 +6,8 @@ import java.util.Date;
 /**
  * Describes entity Administrator
  *
- * @version 1.0 11 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 11 Nov 2015
  */
 public class Administrator extends Human implements Serializable {
     Date entryInThePostDate;

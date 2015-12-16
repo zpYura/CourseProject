@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by zpYura on 13.12.2015.
+ * Load list of rooms when rooms.jsp is loaded
+ *
+ * @author Yury Druzenok
+ * @version 1.0  13 Dec 2015
  */
 public class RoomsPageOnLoadCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {

@@ -6,13 +6,20 @@ import by.epam.interfaces.ActionCommand;
 import by.epam.logic.RequestLogic;
 import by.epam.logic.RoomLogic;
 import by.epam.managers.ConfigurationManager;
+import by.epam.managers.Log4jManager;
+import by.epam.managers.MessageManager;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
- * Created by zpYura on 14.12.2015.
+ * Create list of rooms that suit to client's request
+ *
+ * @author Yury Druzenok
+ * @version 1.0  14 Dec 2015
  */
 public class ComputeRequestCommand implements ActionCommand {
     private static final String PARAM_NAME_REQUEST_ID = "request_id";
@@ -27,8 +34,21 @@ public class ComputeRequestCommand implements ActionCommand {
         List<Request> requestList = new ArrayList<Request>();
         requestList.add(currentRequest);
         List<Room> rooms = RoomLogic.getSuitableRooms(currentRequest);
-        request.setAttribute("roomsList", rooms.toArray());
+
         request.setAttribute("requestsList", requestList.toArray());
+        // if there are no suitable rooms
+        if (rooms.size() == 0) {
+            try {
+
+                request.setAttribute("rooms_lis_empty_error", MessageManager.getProperty((Locale) request.getSession().getAttribute("current_locale"), "rooms_lis_empty_error"));
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                Log4jManager.error(e.getMessage());
+            }
+            request.setAttribute("roomsList", null);
+        } else {
+            request.setAttribute("roomsList", rooms.toArray());
+        }
         page = ConfigurationManager.get("page_admin_compute_request");
         return page;
     }

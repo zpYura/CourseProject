@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by zpYura on 02.12.2015.
+ * Compute all commands
+ *
+ * @author Yury Druzenok
+ * @version 1.0  2 Dec 2015
  */
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
@@ -20,10 +23,12 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
+
     private void processRequest(HttpServletRequest request,
                                 HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,7 +48,7 @@ public class Controller extends HttpServlet {
             // вызов страницы ответа на запрос
             dispatcher.forward(request, response);
         } else {
-                // установка страницы c cообщением об ошибке
+            // установка страницы c cообщением об ошибке
 //            page = ConfigurationManager.getProperty("path.page.index");
 //            request.getSession().setAttribute("nullPage",
 //                    MessageManager.getProperty("message.nullpage"));

@@ -6,8 +6,8 @@ import by.epam.interfaces.ActionCommand;
 /**
  * Represents type of commands
  *
- * @version 1.0 7 Dec 2015
  * @author Yury Druzenok
+ * @version 1.0 7 Dec 2015
  */
 public enum CommandType {
     LOGIN {
@@ -54,8 +54,24 @@ public enum CommandType {
         {
             this.command = new ComputeRequestCommand();
         }
+    },
+    CLIENTS_ALL {
+        {
+            this.command = new ClientsPageOnLoadCommand();
+        }
+    },
+    FIND_CLIENT {
+        {
+            this.command = new FindClientCommand();
+        }
+    },
+    CREATE_BILL {
+        {
+            this.command = new CreateBillCommand();
+        }
     };
     ActionCommand command;
+
     public ActionCommand getCurrentCommand() {
         return command;
     }

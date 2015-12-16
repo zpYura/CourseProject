@@ -5,8 +5,8 @@ import java.io.Serializable;
 /**
  * Describes guide table
  *
- * @version 1.0 11 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 11 Nov 2015
  */
 public class RoomGuide extends Entity implements Serializable {
     int roomId;

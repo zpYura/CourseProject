@@ -9,8 +9,8 @@ import java.sql.SQLException;
 /**
  * Represent new connection pool for MySQL data base
  *
- * @version 1.0 30 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 30 Nov 2015
  */
 public class MySQLConnectionPool extends ConnectionPool {
     MysqlDataSource mysqlDataSource;
@@ -23,12 +23,12 @@ public class MySQLConnectionPool extends ConnectionPool {
     }
 
     @Override
-    public Connection getConnection() throws SQLException {
+    public synchronized Connection getConnection() throws SQLException {
         return mysqlDataSource.getConnection();
     }
 
     @Override
-    public void putConnection(Connection connection) throws SQLException {
+    public synchronized void putConnection(Connection connection) throws SQLException {
         connection.close();
     }
 }

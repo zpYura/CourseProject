@@ -16,6 +16,7 @@
 					<li><a href="/controller?command=request_all">${requests}</a></li>
 					<li><a href="/controller?command=rooms_all">${rooms}</a></li>
 					<li><a href="/controller?command=bills_all">${bills}</a></li>
+					<li><a href="/controller?command=clients_all">${admin_clients_header}</a></li>
 				<%--<li><a href="/jsp/client/contact.jsp">${contact}</a></li>--%>
 				</ul>
 			</div>

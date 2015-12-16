@@ -8,8 +8,8 @@ import by.epam.pool.ConnectionPool;
 /**
  * Provide access to all dao objects for MySQL data base
  *
- * @version 1.3 Changed whole structure 10 Nov 2015
  * @author Yury Druzenok
+ * @version 1.3 Changed whole structure 10 Nov 2015
  */
 public class MySQLDAOFactory extends DAOFactory {
     public static ConnectionPool pool;
@@ -18,6 +18,7 @@ public class MySQLDAOFactory extends DAOFactory {
 
         pool = ConnectionPool.getConnectionPool(type);
     }
+
     @Override
     public AbstractDAO getClientDAO() {
 

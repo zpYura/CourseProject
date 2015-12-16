@@ -5,10 +5,10 @@ import java.io.Serializable;
 /**
  * Describes entity Bill
  *
- * @version 1.0 11 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 11 Nov 2015
  */
-public class Bill  extends Entity implements Serializable{
+public class Bill extends Entity implements Serializable {
     int cost;
 
     public Bill() {

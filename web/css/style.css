@@ -871,6 +871,29 @@ span.next:hover {
 	-webkit-appearance: none;
 }
 
+.compute_request-submit{
+	/*margin-top: 10px;*/
+	margin-right: 10px;
+	display: inline-block;
+	text-transform: uppercase;
+	background: #32A2E3;
+	font-family: 'Open Sans', sans-serif;
+	color: #FFF;
+	padding: 10px;
+	border: none;
+	font-size: 1em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	/*margin-right: 20%;*/
+	width: 75% !important;
+	-webkit-appearance: none;
+}
+
 .login-header{
 	margin-bottom: 2%;
 	text-transform: capitalize;
@@ -1222,7 +1245,7 @@ span.next:hover {
 /* Table 3 Style */
 .table3{
 	font-family:Arial;
-	font-size: 18px;
+	font-size: 14px;
 	font-style: normal;
 	font-weight: normal;
 	text-transform: uppercase;

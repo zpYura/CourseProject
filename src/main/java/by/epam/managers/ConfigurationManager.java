@@ -6,8 +6,8 @@ import java.util.ResourceBundle;
 /**
  * Class for accessing main property file
  *
- * @version 1.0 22 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 22 Nov 2015
  */
 public class ConfigurationManager {
     private ResourceBundle resourceBundle;
@@ -19,10 +19,10 @@ public class ConfigurationManager {
     }
 
     private ConfigurationManager() {
-        resourceBundle = ResourceBundle.getBundle("config",Locale.getDefault() );
+        resourceBundle = ResourceBundle.getBundle("config", Locale.getDefault());
     }
 
-    public static String get(String key) {
+    public static synchronized String get(String key) {
         return singleton.resourceBundle.getString(key);
     }
 }

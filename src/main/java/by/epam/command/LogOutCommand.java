@@ -6,12 +6,15 @@ import by.epam.managers.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Created by zpYura on 10.12.2015.
+ * Clear session
+ *
+ * @author Yury Druzenok
+ * @version 1.0  14 Dec 2015
  */
 public class LogOutCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = ConfigurationManager.get("page_index");
-        // уничтожение сессии
+       //destroy session
         request.getSession().invalidate();
         return page;
     }

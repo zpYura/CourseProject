@@ -3,6 +3,7 @@ package by.epam.dao.objects;
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.entities.RoomGuide;
 import by.epam.managers.ConfigurationManager;
+import by.epam.managers.Log4jManager;
 import by.epam.pool.ConnectionPool;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -15,23 +16,23 @@ import java.util.List;
 /**
  * Override methods to work with roomguide's table in data base
  *
- * @version 1.2 Added logging 24 Nov 2015
  * @author Yury Druzenok
+ * @version 1.2 Added logging 24 Nov 2015
  */
-public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
+public class RoomGuideDAO extends AbstractDAO<Integer, RoomGuide> {
     private static final String SQL_SELECT_ALL_ROOM_GUIDE = ConfigurationManager.get("roomGuide.selectAll");
     private static ConnectionPool pool;
     private static final String SQL_SELECT_ROOM_GUIDE_BY_ID = ConfigurationManager.get("roomGuide.selectById");
     private static final String SQL_DELETE_ROOM_GUIDE_BY_ID = ConfigurationManager.get("roomGuide.deleteById");
     private static final String SQL_INSERT_ROOM_GUIDE = ConfigurationManager.get("roomGuide.insert");
     private static final String SQL_UPDATE_ROOM_GUIDE = ConfigurationManager.get("roomGuide.update");
-    static{
-        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
-    }
-    static Logger logger = Logger.getLogger(RoomGuideDAO.class);
+//    static{
+//        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
+//    }
+//    static Logger logger = Logger.getLogger(RoomGuideDAO.class);
 
-    public RoomGuideDAO(ConnectionPool pool){
-        this.pool= pool;
+    public RoomGuideDAO(ConnectionPool pool) {
+        this.pool = pool;
     }
 
     @Override
@@ -52,13 +53,13 @@ public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
             }
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("%d roomGuides were selected", roomGuides.size()));
+        Log4jManager.info(String.format("%d roomGuides were selected", roomGuides.size()));
         return roomGuides;
     }
 
@@ -69,22 +70,23 @@ public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
         PreparedStatement st = null;
         try {
             cn = pool.getConnection();
-            st = cn.prepareStatement(SQL_SELECT_ROOM_GUIDE_BY_ID +id);
+            st = cn.prepareStatement(SQL_SELECT_ROOM_GUIDE_BY_ID + id);
             ResultSet resultSet = st.executeQuery();
+            resultSet.next();
             int id1 = resultSet.getInt(2);
             int id2 = resultSet.getInt(3);
             int id3 = resultSet.getInt(4);
-            roomGuide = new RoomGuide(id, id1, id2,id3);
+            roomGuide = new RoomGuide(id, id1, id2, id3);
 
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("RoomGuide with id %d was selected", id));
+        Log4jManager.info(String.format("RoomGuide with id %d was selected", id));
         return roomGuide;
 
     }
@@ -101,13 +103,13 @@ public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("RoomGuide with id %d was deleted", id));
+        Log4jManager.info(String.format("RoomGuide with id %d was deleted", id));
         return success;
     }
 
@@ -123,13 +125,13 @@ public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("RoomGuide with id %d was deleted", entity.getId()));
+        Log4jManager.info(String.format("RoomGuide with id %d was deleted", entity.getId()));
         return success;
     }
 
@@ -147,14 +149,14 @@ public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
             st.executeUpdate();
             success = true;
         } catch (SQLException e) {
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
             System.err.println("SQL exception (request or table failed): " + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("RoomGuide with id %d was added", entity.getId()));
+        Log4jManager.info(String.format("RoomGuide with id %d was added", entity.getId()));
         return success;
     }
 
@@ -173,13 +175,13 @@ public class RoomGuideDAO extends AbstractDAO<Integer,RoomGuide> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("RoomGuide with id %d was changed", entity.getId()));
+        Log4jManager.info(String.format("RoomGuide with id %d was changed", entity.getId()));
         return success;
     }
 }

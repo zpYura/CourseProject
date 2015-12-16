@@ -3,8 +3,8 @@ package by.epam.enums;
 /**
  * Represents type of apartment
  *
- * @version 1.0 10 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 10 Nov 2015
  */
 public enum ApartmentType {
     SINGLE_ROOM,

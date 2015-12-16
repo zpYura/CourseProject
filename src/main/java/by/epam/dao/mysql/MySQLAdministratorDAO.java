@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * Override methods to work with administrator's table in  MySQL data base
  *
- * @version 1.0  01 Dec 2015
  * @author Yury Druzenok
+ * @version 1.0  01 Dec 2015
  */
 public class MySQLAdministratorDAO extends AbstractDAO<Integer, Administrator> {
     @Override
@@ -26,7 +26,7 @@ public class MySQLAdministratorDAO extends AbstractDAO<Integer, Administrator> {
 
     @Override
     public boolean delete(Integer id) throws SQLException {
-        return  new AdministratorDAO(MySQLDAOFactory.pool).delete(id);
+        return new AdministratorDAO(MySQLDAOFactory.pool).delete(id);
     }
 
     @Override

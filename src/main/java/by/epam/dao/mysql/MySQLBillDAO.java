@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * Override methods to work with bill's table in MySQL data base
  *
- * @version 1.0 1 Dec 2015
  * @author Yury Druzenok
+ * @version 1.0 1 Dec 2015
  */
 public class MySQLBillDAO extends AbstractDAO<Integer, Bill> {
     @Override

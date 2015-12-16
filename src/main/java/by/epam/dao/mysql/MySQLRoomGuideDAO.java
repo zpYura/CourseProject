@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * Override methods to work with roomguide's table in MySQl data base
  *
- * @version 1.0 1 Dec 2015
  * @author Yury Druzenok
+ * @version 1.0 1 Dec 2015
  */
 public class MySQLRoomGuideDAO extends AbstractDAO<Integer, RoomGuide> {
     @Override

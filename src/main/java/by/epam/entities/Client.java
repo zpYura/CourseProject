@@ -6,10 +6,10 @@ import java.util.Date;
 /**
  * Describes entity Client
  *
- * @version 1.0 11 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 11 Nov 2015
  */
-public class Client extends Human implements Serializable{
+public class Client extends Human implements Serializable {
     String email;
 
     public Client() {

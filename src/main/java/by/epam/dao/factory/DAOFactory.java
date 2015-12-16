@@ -8,27 +8,34 @@ import by.epam.enums.DataBaseType;
 /**
  * Abstract class DAOFactory
  *
- * @version 1.0 11 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 11 Nov 2015
  */
 public abstract class DAOFactory {
     public abstract AbstractDAO getClientDAO();
+
     public abstract AbstractDAO getAdministratorDAO();
+
     public abstract AbstractDAO getBillDAO();
+
     public abstract AbstractDAO getRequestDAO();
+
     public abstract AbstractDAO getRoomDAO();
+
     public abstract AbstractDAO getRoomGuideDAO();
 
     public static DAOFactory getDAOFactory(DataBaseType type) {
         DAOFactory dao;
         switch (type) {
-            case MYSQL:{
-               dao = new MySQLDAOFactory(DataBaseType.MYSQL);
-            }break;
-            case SQLITE:{
+            case MYSQL: {
+                dao = new MySQLDAOFactory(DataBaseType.MYSQL);
+            }
+            break;
+            case SQLITE: {
                 dao = new SQLiteDAOFactory(DataBaseType.SQLITE);
-            }break;
-            default:{
+            }
+            break;
+            default: {
                 dao = null;
             }
         }

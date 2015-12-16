@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * Created by zpYura on 14.12.2015.
+ * Loads lists of bills and roomGuides when bill.jsp load
+ *
+ * @author Yury Druzenok
+ * @version 1.0  14 Dec 2015
  */
 public class BillsPageOnLoadCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {

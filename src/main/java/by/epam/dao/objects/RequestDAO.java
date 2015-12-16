@@ -4,6 +4,7 @@ import by.epam.dao.factory.AbstractDAO;
 import by.epam.enums.ApartmentType;
 import by.epam.entities.Request;
 import by.epam.managers.ConfigurationManager;
+import by.epam.managers.Log4jManager;
 import by.epam.pool.ConnectionPool;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -16,23 +17,23 @@ import java.util.*;
 /**
  * Override methods to work with request's table in data base
  *
- * @version 1.2 Added logging 24 Nov 2015
  * @author Yury Druzenok
+ * @version 1.2 Added logging 24 Nov 2015
  */
-public class RequestDAO extends AbstractDAO<Integer,Request> {
+public class RequestDAO extends AbstractDAO<Integer, Request> {
     private static final String SQL_SELECT_ALL_REQUESTS = ConfigurationManager.get("request.selectAll");
     private static ConnectionPool pool;
     private static final String SQL_SELECT_REQUESTS_BY_ID = ConfigurationManager.get("request.selectById");
     private static final String SQL_DELETE_REQUESTS_BY_ID = ConfigurationManager.get("request.deleteById");
     private static final String SQL_INSERT_REQUESTS = ConfigurationManager.get("request.insert");
     private static final String SQL_UPDATE_REQUESTS = ConfigurationManager.get("request.update");
-    static{
-        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
-    }
-    static Logger logger = Logger.getLogger(RequestDAO.class);
+//    static{
+//        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
+//    }
+//    static Logger logger = Logger.getLogger(RequestDAO.class);
 
-    public RequestDAO(ConnectionPool pool){
-        this.pool= pool;
+    public RequestDAO(ConnectionPool pool) {
+        this.pool = pool;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
             ResultSet resultSet = st.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
-                int beds= resultSet.getInt(2);
+                int beds = resultSet.getInt(2);
                 String type = resultSet.getString(3);
                 Date inDate = resultSet.getDate(4);
                 Date date = resultSet.getDate(5);
@@ -58,13 +59,13 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
             }
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("%d requests were selected", requests.size()));
+        Log4jManager.info(String.format("%d requests were selected", requests.size()));
         return requests;
     }
 
@@ -75,11 +76,11 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
         PreparedStatement st = null;
         try {
             cn = pool.getConnection();
-            st = cn.prepareStatement(SQL_SELECT_REQUESTS_BY_ID +id);
+            st = cn.prepareStatement(SQL_SELECT_REQUESTS_BY_ID + id);
             ResultSet resultSet = st.executeQuery();
             while (resultSet.next()) {
 
-                int beds= resultSet.getInt(2);
+                int beds = resultSet.getInt(2);
                 String type = resultSet.getString(3);
                 Date inDate = resultSet.getDate(4);
                 Date date = resultSet.getDate(5);
@@ -91,13 +92,13 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
             }
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Request with id %d was selected", id));
+        Log4jManager.info(String.format("Request with id %d was selected", id));
         return request;
     }
 
@@ -113,13 +114,13 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Request with id %d was deleted", id));
+        Log4jManager.info(String.format("Request with id %d was deleted", id));
         return success;
     }
 
@@ -135,13 +136,13 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Request with id %d was deleted", entity.getId()));
+        Log4jManager.info(String.format("Request with id %d was deleted", entity.getId()));
         return success;
     }
 
@@ -165,13 +166,13 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Request with id %d was added", entity.getId()));
+        Log4jManager.info(String.format("Request with id %d was added", entity.getId()));
         return success;
     }
 
@@ -195,13 +196,13 @@ public class RequestDAO extends AbstractDAO<Integer,Request> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Request with id %d was changed", entity.getId()));
+        Log4jManager.info(String.format("Request with id %d was changed", entity.getId()));
         return success;
     }
 }

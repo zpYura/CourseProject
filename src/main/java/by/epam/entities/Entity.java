@@ -5,8 +5,8 @@ import java.io.Serializable;
 /**
  * Describes common business entity
  *
- * @version 1.0 10 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 10 Nov 2015
  */
 public class Entity implements Serializable {
     //object's id

@@ -9,8 +9,8 @@ import java.sql.SQLException;
 /**
  * Represent new connection pool for SQLite data base
  *
- * @version 1.0 30 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 30 Nov 2015
  */
 public class SQLiteConnectionPool extends ConnectionPool {
     SQLiteDataSource sqLiteDataSource;
@@ -21,12 +21,12 @@ public class SQLiteConnectionPool extends ConnectionPool {
     }
 
     @Override
-    public Connection getConnection() throws SQLException {
-       return sqLiteDataSource.getConnection();
+    public synchronized Connection getConnection() throws SQLException {
+        return sqLiteDataSource.getConnection();
     }
 
     @Override
-    public void putConnection(Connection connection) throws SQLException {
+    public synchronized void putConnection(Connection connection) throws SQLException {
         connection.close();
     }
 }

@@ -3,6 +3,7 @@ package by.epam.dao.objects;
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.entities.Administrator;
 import by.epam.managers.ConfigurationManager;
+import by.epam.managers.Log4jManager;
 import by.epam.pool.ConnectionPool;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -15,10 +16,10 @@ import java.util.List;
 /**
  * Override methods to work with administrator's table in data base
  *
- * @version 1.2 Added logging 24 Nov 2015
  * @author Yury Druzenok
+ * @version 1.2 Added logging 24 Nov 2015
  */
-public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
+public class AdministratorDAO extends AbstractDAO<Integer, Administrator> {
     // keep string of select request
     private static final String SQL_SELECT_ALL_ADMINISTRATORS = ConfigurationManager.get("admin.selectAll");
     // connection pool link
@@ -32,15 +33,15 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
     // keep string of update request
     private static final String SQL_UPDATE_ADMINISTRATORS = ConfigurationManager.get("admin.update");
 
-    public AdministratorDAO(ConnectionPool pool){
-        this.pool= pool;
+    public AdministratorDAO(ConnectionPool pool) {
+        this.pool = pool;
     }
 
-    static{
-        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
-    }
-    // logger for this class
-    static Logger logger = Logger.getLogger(AdministratorDAO.class);
+//    static{
+//        new DOMConfigurator().doConfigure("log4j.xml", Log4jManager.getLoggerRepository());
+//    }
+//    // logger for this class
+//    static Logger logger = Logger.getLogger(AdministratorDAO.class);
 
     @Override
     public List<Administrator> findAll() throws SQLException {
@@ -66,13 +67,13 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             }
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed ):" + e.getMessage());
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("%d administrators were selected", administrators.size()));
+        Log4jManager.info(String.format("%d administrators were selected", administrators.size()));
         return administrators;
 
     }
@@ -84,8 +85,9 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
         PreparedStatement st = null;
         try {
             cn = pool.getConnection();
-            st = cn.prepareStatement(SQL_SELECT_ADMINISTRATORS_BY_ID +id);
+            st = cn.prepareStatement(SQL_SELECT_ADMINISTRATORS_BY_ID + id);
             ResultSet resultSet = st.executeQuery();
+            resultSet.next();
             String name1 = resultSet.getString(2);
             String name2 = resultSet.getString(3);
             String name3 = resultSet.getString(4);
@@ -95,17 +97,17 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             Date entryInThePostDate = resultSet.getDate(8);
             String login = resultSet.getString(9);
             String password = resultSet.getString(10);
-            administrator = new Administrator(id, name1, name2,name3,date,address,phone,entryInThePostDate, login, password);
+            administrator = new Administrator(id, name1, name2, name3, date, address, phone, entryInThePostDate, login, password);
 
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e.getMessage());
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Administrator with id %d was selected", id));
+        Log4jManager.info(String.format("Administrator with id %d was selected", id));
         return administrator;
 
     }
@@ -122,13 +124,13 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e.getMessage());
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Administrator with id %d was deleted", id));
+        Log4jManager.info(String.format("Administrator with id %d was deleted", id));
         return success;
     }
 
@@ -144,13 +146,13 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e.getMessage());
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Administrator with id %d was deleted", entity.getId()));
+        Log4jManager.info(String.format("Administrator with id %d was deleted", entity.getId()));
         return success;
     }
 
@@ -175,13 +177,13 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e.getMessage());
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Administrator with id %d was added", entity.getId()));
+        Log4jManager.info(String.format("Administrator with id %d was added", entity.getId()));
         return success;
     }
 
@@ -206,13 +208,13 @@ public class AdministratorDAO extends AbstractDAO<Integer,Administrator> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e.getMessage());
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Administrator with id %d was changed", entity.getId()));
+        Log4jManager.info(String.format("Administrator with id %d was changed", entity.getId()));
         return success;
     }
 }

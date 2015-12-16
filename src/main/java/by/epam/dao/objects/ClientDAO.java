@@ -3,11 +3,13 @@ package by.epam.dao.objects;
 import by.epam.dao.factory.AbstractDAO;
 import by.epam.entities.Client;
 import by.epam.managers.ConfigurationManager;
+import by.epam.managers.Log4jManager;
 import by.epam.pool.ConnectionPool;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.apache.log4j.Logger;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,27 +17,29 @@ import java.util.List;
 /**
  * Override methods to work with client's table in data base
  *
- * @version 1.2 Added logging 24 Nov 2015
  * @author Yury Druzenok
+ * @version 1.2 Added logging 24 Nov 2015
  */
-public class ClientDAO extends AbstractDAO<Integer,Client> {
+public class ClientDAO extends AbstractDAO<Integer, Client> {
     private static final String SQL_SELECT_ALL_CLIENTS = ConfigurationManager.get("client.selectAll");
     private static ConnectionPool pool;
     private static final String SQL_SELECT_CLIENTS_BY_ID = ConfigurationManager.get("client.selectById");
     private static final String SQL_DELETE_CLIENTS_BY_ID = ConfigurationManager.get("client.deleteById");
     private static final String SQL_INSERT_CLIENTS = ConfigurationManager.get("client.insert");
     private static final String SQL_UPDATE_CLIENTS = ConfigurationManager.get("client.update");
-    static{
-        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
-    }
-    static Logger logger = Logger.getLogger(ClientDAO.class);
 
-    public ClientDAO(ConnectionPool pool){
-        this.pool= pool;
+//    static {
+//        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
+//    }
+//
+//    static Logger logger = Logger.getLogger(ClientDAO.class);
+
+    public ClientDAO(ConnectionPool pool) {
+        this.pool = pool;
     }
 
     @Override
-    public List<Client> findAll() throws SQLException{
+    public List<Client> findAll() throws SQLException {
         List<Client> clients = new ArrayList<Client>();
         Connection cn = null;
         PreparedStatement st = null;
@@ -58,13 +62,13 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
             }
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("%d clients were selected", clients.size()));
+        Log4jManager.info(String.format("%d clients were selected", clients.size()));
         return clients;
 
     }
@@ -76,34 +80,35 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
         PreparedStatement st = null;
         try {
             cn = pool.getConnection();
-            st = cn.prepareStatement(SQL_SELECT_CLIENTS_BY_ID +id);
+            st = cn.prepareStatement(SQL_SELECT_CLIENTS_BY_ID + id.toString());
             ResultSet resultSet = st.executeQuery();
-                String name1 = resultSet.getString(2);
-                String name2 = resultSet.getString(3);
-                String name3 = resultSet.getString(4);
-                Date date = resultSet.getDate(5);
-                String address = resultSet.getString(6);
-                String phone = resultSet.getString(7);
-                String mail = resultSet.getString(8);
-                String login = resultSet.getString(9);
-                String password = resultSet.getString(10);
-                client = new Client(id, name1, name2, name3, date, address ,phone, mail, login, password);
+            resultSet.next();
+            String name1 = resultSet.getString(2);
+            String name2 = resultSet.getString(3);
+            String name3 = resultSet.getString(4);
+            Date date = resultSet.getDate(5);
+            String address = resultSet.getString(6);
+            String phone = resultSet.getString(7);
+            String mail = resultSet.getString(8);
+            String login = resultSet.getString(9);
+            String password = resultSet.getString(10);
+            client = new Client(id, name1, name2, name3, date, address, phone, mail, login, password);
 
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Client with id %d was selected", id));
+        Log4jManager.info(String.format("Client with id %d was selected", id));
         return client;
 
     }
 
     @Override
-    public boolean delete(Integer id) throws SQLException{
+    public boolean delete(Integer id) throws SQLException {
         boolean success = false;
         Connection cn = null;
         PreparedStatement st = null;
@@ -114,18 +119,18 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Client with id %d was deleted", id));
+        Log4jManager.info(String.format("Client with id %d was deleted", id));
         return success;
     }
 
     @Override
-    public boolean delete(Client entity) throws SQLException{
+    public boolean delete(Client entity) throws SQLException {
         boolean success = false;
         Connection cn = null;
         PreparedStatement st = null;
@@ -136,18 +141,18 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Client with id %d was deleted", entity.getId()));
+        Log4jManager.info(String.format("Client with id %d was deleted", entity.getId()));
         return success;
     }
 
     @Override
-    public boolean create(Client entity) throws SQLException{
+    public boolean create(Client entity) throws SQLException {
         boolean success = false;
         Connection cn = null;
         PreparedStatement st = null;
@@ -167,18 +172,18 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Client with id %d was added", entity.getId()));
+        Log4jManager.info(String.format("Client with id %d was added", entity.getId()));
         return success;
     }
 
     @Override
-    public boolean update(Client entity) throws SQLException{
+    public boolean update(Client entity) throws SQLException {
 
         boolean success = false;
         Connection cn = null;
@@ -199,13 +204,13 @@ public class ClientDAO extends AbstractDAO<Integer,Client> {
             success = true;
         } catch (SQLException e) {
             System.err.println("SQL exception (request or table failed): " + e);
-            logger.error("SQL exception (request or table failed):", e);
+            Log4jManager.error("SQL exception (request or table failed):" + e);
         } finally {
-            if(st != null)
-            st.close();
+            if (st != null)
+                st.close();
             pool.putConnection(cn);
         }
-        logger.info(String.format("Client with id %d was changed", entity.getId()));
+        Log4jManager.info(String.format("Client with id %d was changed", entity.getId()));
         return success;
     }
 }

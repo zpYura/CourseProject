@@ -6,8 +6,8 @@ import java.util.Date;
 /**
  * Describes super class Human for classes Client and Administrator
  *
- * @version 1.0 11 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 11 Nov 2015
  */
 public class Human extends Entity implements Serializable {
     String lastName;

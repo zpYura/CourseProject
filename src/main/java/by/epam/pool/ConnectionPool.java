@@ -8,22 +8,25 @@ import java.sql.SQLException;
 /**
  * Represent new pool
  *
- * @version 1.0 18 Nov 2015
  * @author Yury Druzenok
+ * @version 1.0 18 Nov 2015
  */
 public abstract class ConnectionPool {
     public static ConnectionPool getConnectionPool(DataBaseType type) {
         ConnectionPool source;
         switch (type) {
-            case MYSQL:{
+            case MYSQL: {
                 source = new MySQLConnectionPool();
-            }break;
-            case SQLITE:{
+            }
+            break;
+            case SQLITE: {
                 source = new SQLiteConnectionPool();
-            }break;
-            default:{
+            }
+            break;
+            default: {
                 source = null;
-            }break;
+            }
+            break;
         }
         return source;
 
