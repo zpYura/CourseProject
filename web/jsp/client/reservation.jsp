@@ -55,32 +55,16 @@
 					<div class="sel_room">
 						<h4>${reservation_page_max_cost}:</h4>
 						<input name="maxCost" type="text" class="textbox">
-						<%--<select id="country" onchange="change_country(this.value)" class="frm-field required">--%>
-							<%--<option value="null">0</option>--%>
-							<%--<option value="null">1</option>--%>
-				            <%--<option value="null">2</option>         --%>
-				            <%--<option value="AX">3</option>--%>
-							<%--<option value="AX">4</option>--%>
-		        		<%--</select>--%>
 					</div>	
 					<div class="sel_room left">
 						<h4>${reservation_page_min_cost}:</h4>
 						<input name="minCost" type="text" class="textbox">
-						<%--<select id="country" onchange="change_country(this.value)" class="frm-field required">--%>
-							<%--<option value="null">0</option>--%>
-							<%--<option value="null">1</option>--%>
-				            <%--<option value="null">2</option>         --%>
-				            <%--<option value="AX">3</option>--%>
-							<%--<option value="AX">4</option>--%>
-		        		<%--</select>--%>
 					</div>	
 				</div>
 				<div class="clear"></div>
 			</div>
 			<div >
-				<%--<form>--%>
 					<input type="submit" value="${reservation_page_submit_button}" class="reservation_but">
-				<%--</form>--%>
 			</div>
 			</form>
 	</div>

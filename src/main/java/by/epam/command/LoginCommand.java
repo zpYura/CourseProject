@@ -44,6 +44,7 @@ public class LoginCommand implements ActionCommand {
         if (id != -1) {
             request.getSession().setAttribute("user", login);
             request.getSession().setAttribute("userId", id);
+            // set language according to user's choice
             if (language.equals(RUSSIAN)) {
                 current = new Locale("ru", "RU");
             }

@@ -17,8 +17,8 @@
 					<h4>${requests_page_header}</h4>
 					<p class="para">${admin_compute_request_description}</p>
 				</div>
-				<div class="grids_of_2">
-					<div class="grids_of_para">
+				<div class="grids_of_2_table">
+					<div class="grids_of_para_table">
 						<h1>${requests_page_header}</h1>
 						<table class="table3">
 							<thead>
@@ -55,13 +55,10 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-				<div class="grids_of_2">
-					<div class="grids_of_para">
+				<div class="grids_of_2_table">
+					<div class="grids_of_para_table">
 						<p>${rooms_lis_empty_error}</p>
                         <br>
-						<%--<c:set var="size" scope="page">--%>
-							<%--roomsList.length--%>
-						<%--</c:set>--%>
                         <c:if test="${empty roomsList}">
                             <form action="/controller">
                                 <input type="hidden" name="command" value="find_client" />

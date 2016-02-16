@@ -22,7 +22,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-5.1.37-bin" level="project" />
     <orderEntry type="library" name="log4j-1.2.9" level="project" />
@@ -45,5 +45,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jsp-api-2.2" level="project" />
+    <orderEntry type="library" name="Maven: log4j:log4j:1.2.9" level="project" />
   </component>
 </module>

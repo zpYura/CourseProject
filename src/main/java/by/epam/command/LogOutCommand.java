@@ -1,6 +1,7 @@
 package by.epam.command;
 
 import by.epam.interfaces.ActionCommand;
+import by.epam.logic.LoginLogic;
 import by.epam.managers.ConfigurationManager;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ public class LogOutCommand implements ActionCommand {
         String page = ConfigurationManager.get("page_index");
        //destroy session
         request.getSession().invalidate();
+        LoginLogic.isAdmin = false;
         return page;
     }
 }

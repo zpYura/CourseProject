@@ -17,6 +17,7 @@ import java.util.List;
 public class ClientsPageOnLoadCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = null;
+        //get all clients and put them into table on the page
         List<Client> clients = ClientLogic.getAllClients();
         request.setAttribute("clientsList", clients.toArray());
         page = ConfigurationManager.get("page_admin_clients");

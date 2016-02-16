@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 public class ActionFactory {
 
     public ActionCommand defineCommand(HttpServletRequest request) {
-        // ActionCommand current = new EmptyCommand();
         ActionCommand current = null;
         // get the name command
         String action = request.getParameter("command");
@@ -31,8 +30,6 @@ public class ActionFactory {
             CommandType currentEnum = CommandType.valueOf(action.toUpperCase());
             current = currentEnum.getCurrentCommand();
         } catch (IllegalArgumentException e) {
-//            request.setAttribute("wrongAction", action
-//                    + MessageManager.getProperty("message.wrongaction"));
             Log4jManager.error("Action exception:" + e);
         }
         return current;

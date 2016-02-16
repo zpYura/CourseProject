@@ -19,6 +19,7 @@ public class RequestsPageOnLoadCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = null;
         List<Request> requests = RequestLogic.getAllRequests();
+        // put all requests on the page
         request.setAttribute("requestsList", requests.toArray());
         page = ConfigurationManager.get("page_request");
         return page;

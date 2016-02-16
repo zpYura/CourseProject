@@ -17,8 +17,8 @@
 				<h4>${admin_rooms_page_header}</h4>
 				<p class="para">${admin_rooms_page_first_description}</p>
 			</div>
-				<div class="grids_of_2">
-					<div class="grids_of_para">
+				<div class="grids_of_2_table">
+					<div class="grids_of_para_table">
 						<table class="table3">
 							<thead>
 							<tr>

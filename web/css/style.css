@@ -528,6 +528,10 @@ p.para{
 	display: block;
 	margin: 8% 0;
 }
+.grids_of_2_table{
+	display: block;
+	margin: 4% 0;
+}
 .grids_of_img{
 	float: left;
 	width: 22.33333%;
@@ -536,6 +540,11 @@ p.para{
 	float: left;
 	width:73.333333%;
 	margin-left: 4.333333%;
+}
+.grids_of_para_table{
+	float: left;
+	width:73.333333%;
+	margin-left: 0;
 }
 /* res_online */
 .res_online h4 {

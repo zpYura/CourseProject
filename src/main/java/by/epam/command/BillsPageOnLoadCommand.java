@@ -20,6 +20,7 @@ public class BillsPageOnLoadCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = null;
         List<Bill> bills = BillLogic.getAllBills();
+        // get all bills and roomGuides and put them into attributes
         request.setAttribute("billsList", bills.toArray());
         List<RoomGuide> roomGuides = RoomGuideLogic.getAllRoomGuides();
         request.setAttribute("roomGuidesList", roomGuides.toArray());

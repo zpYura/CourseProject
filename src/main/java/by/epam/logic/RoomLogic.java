@@ -35,6 +35,7 @@ public class RoomLogic {
         DAOFactory dao = DAOFactory.getDAOFactory(DataBaseType.MYSQL);
         try {
             List<Room> rooms = dao.getRoomDAO().findAll();
+            // search for rooms that suit this request
             for (Room room : rooms) {
                 if (request.getNumberOfbeds() <= room.getNumberOfbeds() && request.getType().equals(room.getType())
                         && request.getInDate().compareTo(room.getReleaseDate()) > 0 && room.getCostPerDay() <= request.getMaxCost()) {

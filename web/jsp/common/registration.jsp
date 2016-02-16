@@ -20,18 +20,6 @@
                 <a href="/jsp/common/login.jsp"><img src="/images/logo.png" alt=""></a>
             </div>
             <div class="clear"></div>
-            <div class="top-nav">
-                <nav class="clearfix">
-                    <ul>
-                        <li class="active"><a href="/index.jsp">hotel</a></li>
-                        <li><a href="/jsp/client/rooms.jsp">rooms & suits</a></li>
-                        <li><a href="/jsp/client/reservation.jsp">reservation</a></li>
-                        <li><a href="/jsp/client/activities.jsp">activities</a></li>
-                        <li><a href="/jsp/client/contact.jsp">contact</a></li>
-                    </ul>
-                    <a href="#" id="pull">Menu</a>
-                </nav>
-            </div>
         </div>
     </div>
 </div>
@@ -67,7 +55,7 @@
                         </div>
                         <div>
                             <span><label>${registration_birthDate}</label></span>
-                            <span><input name="userBirthDate" type="text" class="textbox" value="07/06/13"></span>
+                            <span><input name="userBirthDate" type="text" class="textbox" placeholder="dd/MM/yy"></span>
                         </div>
                         <div>
                             <span align="center" style="color: #cd0a0a"><label>${errorRegistrationDate}</label></span>
@@ -125,7 +113,7 @@
                 <p align="center" class="link"><span>${registration_footer}&nbsp;<a href="/jsp/common/login.jsp"> ${registration_registlink}</a></span></p>
             </div>
             <div class="login-copy">
-                <p align="center" class="link"><span>© 2015 All rights reserved | Druzenok Yury</span></p>
+                <p align="center" class="link"><span>© 2016 All rights reserved | Druzenok Yury</span></p>
             </div>
         </div>
     </div>

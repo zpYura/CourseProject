@@ -110,7 +110,6 @@
 				</ul>
 		<div class="clear"></div>
 	<!-- end main_content -->
-
 	</div>
 </div>
 </div>

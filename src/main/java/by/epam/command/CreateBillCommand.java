@@ -27,6 +27,7 @@ public class CreateBillCommand implements ActionCommand {
 
     public String execute(HttpServletRequest request) {
         String page = null;
+        // get the request we work with
         Request requestCurrent = RequestLogic.getRequestById((Integer) request.getSession().getAttribute(PARAM_NAME_REQUEST_ID));
         Room room = RoomLogic.getRoomById(Integer.parseInt(request.getParameter(PARAM_NAME_ROOM_ID)));
         //compute numbers of days
@@ -36,6 +37,7 @@ public class CreateBillCommand implements ActionCommand {
         Bill bill = new Bill(-1, cost);
         if (BillLogic.createBill(bill)) {
             List<Bill> bills = BillLogic.getAllBills();
+            // we want to show bill int the table, so first we need find it
             List<Bill> resultBill = new ArrayList<Bill>();
             for (int i = bills.size() - 1; i >= 0 && resultBill.size() == 0; i--) {
                 if (bills.get(i).getCost() == cost)

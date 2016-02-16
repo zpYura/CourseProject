@@ -21,6 +21,7 @@ public class FindClientCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = null;
         int id = Integer.parseInt(request.getParameter(PARAM_NAME_CLIENT_ID));
+        // found client's information
         Client client = ClientLogic.getClientById(id);
         List<Client> clients = new ArrayList<Client>();
         clients.add(client);

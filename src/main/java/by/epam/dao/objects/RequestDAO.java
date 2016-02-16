@@ -27,10 +27,6 @@ public class RequestDAO extends AbstractDAO<Integer, Request> {
     private static final String SQL_DELETE_REQUESTS_BY_ID = ConfigurationManager.get("request.deleteById");
     private static final String SQL_INSERT_REQUESTS = ConfigurationManager.get("request.insert");
     private static final String SQL_UPDATE_REQUESTS = ConfigurationManager.get("request.update");
-//    static{
-//        new DOMConfigurator().doConfigure("log4j.xml", LogManager.getLoggerRepository());
-//    }
-//    static Logger logger = Logger.getLogger(RequestDAO.class);
 
     public RequestDAO(ConnectionPool pool) {
         this.pool = pool;
@@ -42,8 +38,10 @@ public class RequestDAO extends AbstractDAO<Integer, Request> {
         Connection cn = null;
         PreparedStatement st = null;
         try {
+            //get connection from pool
             cn = pool.getConnection();
             st = cn.prepareStatement(SQL_SELECT_ALL_REQUESTS);
+            // get result set
             ResultSet resultSet = st.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
@@ -63,6 +61,7 @@ public class RequestDAO extends AbstractDAO<Integer, Request> {
         } finally {
             if (st != null)
                 st.close();
+            // close connection
             pool.putConnection(cn);
         }
         Log4jManager.info(String.format("%d requests were selected", requests.size()));

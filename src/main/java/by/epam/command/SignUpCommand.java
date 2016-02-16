@@ -49,6 +49,7 @@ public class SignUpCommand implements ActionCommand {
         // get parameters
         try {
             lastName = Validator.getString(request.getParameter(PARAM_NAME_LAST_NAME));
+            // check if all data is valid
             if (!Validator.checkTextField(lastName)) {
                 flag = true;
                 request.setAttribute("errorRegistrationLastName", MessageManager.getProperty((Locale) request.getSession().getAttribute("current_locale"), "registration_text_field_error"));

@@ -48,6 +48,7 @@ public class BookCommand implements ActionCommand {
             type = ApartmentType.valueOf(request.getParameter(PARAM_NAME_ROOM_TYPE));
             inDate = formatter.parse(request.getParameter(PARAM_NAME_CHECK_IN));
             outDate = formatter.parse(request.getParameter(PARAM_NAME_CHECK_OUT));
+            // get the client's id
             id = Integer.parseInt(request.getSession().getAttribute("userId").toString());
         } catch (ParseException e) {
             System.err.println(e.getMessage());

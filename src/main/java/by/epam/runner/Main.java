@@ -56,12 +56,15 @@ public class Main {
            // dao.getClientDAO().delete(Integer.valueOf(1));
             //dao.getClientDAO().delete(Integer.valueOf(2));
             //dao.getClientDAO().delete(Integer.valueOf(3));
-//           Administrator client = new Administrator(5,"Главатский", "Никита", "Юрьевич", new Date(100000), "street", "25525", Date.from(Instant.now()),"admin","admin");
-//           dao.getAdministratorDAO().create(client);
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
-             Date birthDate = formatter.parse("17/12/15");
-            Room room = new Room(1,1, ApartmentType.DOUBLE_ROOM, 120,birthDate);
-            dao.getRoomDAO().create(room);
+             Date birthDate = formatter.parse("13/08/86");
+            Date inDate = formatter.parse("18/10/14");
+           Administrator client = new Administrator(5,"Леонов", "Олег", "Вадимович", birthDate, "Гомель, Техническая 43", "+375291234587", inDate,"leon","admin");
+           dao.getAdministratorDAO().create(client);
+//            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yy");
+//             Date birthDate = formatter.parse("07/02/16");
+//            Room room = new Room(1,3, ApartmentType.SUITE_ROOM,1500,birthDate);
+//            dao.getRoomDAO().create(room);
         }
         catch (SQLException exp){
             System.err.print(exp.getMessage());

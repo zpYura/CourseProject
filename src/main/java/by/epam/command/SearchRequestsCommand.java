@@ -18,6 +18,7 @@ public class SearchRequestsCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = null;
         List<Request> requests = RequestLogic.searchRequests();
+        // put all rooms on the page's table
         request.setAttribute("requestsList", requests.toArray());
         page = ConfigurationManager.get("page_request");
         return page;

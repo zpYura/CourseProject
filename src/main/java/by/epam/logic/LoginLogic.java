@@ -27,6 +27,7 @@ public class LoginLogic {
         try {
             List<Client> clients = dao.getClientDAO().findAll();
             List<Administrator> administrators = dao.getAdministratorDAO().findAll();
+            //get all clients and administrators and search for current login and password
             for (Client c : clients) {
                 if (c.getLogin().equals(login) && c.getPassword().equals(password)) {
                     id = c.getId();
@@ -35,6 +36,7 @@ public class LoginLogic {
             for (Administrator c : administrators) {
                 if (c.getLogin().equals(login) && c.getPassword().equals(password)) {
                     id = c.getId();
+                    // if that's admin we need to signal about it
                     isAdmin = true;
                 }
             }
@@ -53,7 +55,7 @@ public class LoginLogic {
         try {
             List<Client> clients = dao.getClientDAO().findAll();
             List<Administrator> administrators = dao.getAdministratorDAO().findAll();
-
+            // check is there are such login in the databasea
             for (Client c : clients) {
                 if (c.getLogin().equals(login)) {
                     success = true;

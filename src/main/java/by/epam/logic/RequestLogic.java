@@ -34,6 +34,7 @@ public class RequestLogic {
         DAOFactory dao = DAOFactory.getDAOFactory(DataBaseType.MYSQL);
         try {
             List<Request> requestList = dao.getRequestDAO().findAll();
+            // -1 means that request is not proceed yet
             for (Request request : requestList) {
                 if (request.getAdminId() == -1) {
                     requests.add(request);

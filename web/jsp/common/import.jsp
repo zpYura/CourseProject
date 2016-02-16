@@ -26,7 +26,6 @@
     });
 </script>
 <!---/End-date-piker---->
-<%--<link type="text/css" rel="stylesheet" href="css/JFGrid.css" />--%>
 <link type="text/css" rel="stylesheet" href="/css/JFFormStyle-1.css" />
 <script type="text/javascript" src="/js/JFCore.js"></script>
 <script type="text/javascript" src="/js/JFForms.js"></script>

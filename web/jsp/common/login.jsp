@@ -20,18 +20,6 @@
                 <a href="/jsp/common/login.jsp"><img src="/images/logo.png" alt=""></a>
             </div>
             <div class="clear"></div>
-            <div class="top-nav">
-                <nav class="clearfix">
-                    <ul>
-                        <li class="active"><a href="/index.jsp">hotel</a></li>
-                        <li><a href="/jsp/client/rooms.jsp">rooms & suits</a></li>
-                        <li><a href="/jsp/client/reservation.jsp">reservation</a></li>
-                        <li><a href="/jsp/client/activities.jsp">activities</a></li>
-                        <li><a href="/jsp/client/contact.jsp">contact</a></li>
-                    </ul>
-                    <a href="#" id="pull">Menu</a>
-                </nav>
-            </div>
         </div>
     </div>
 </div>
@@ -54,11 +42,9 @@
                         </div>
                         <div>
                             <span><label>${login_language}</label></span>
-                            <select name="language" >
+                            <select name="language" style="width: 98%">
                                 <option value="en">${login_language_en}</option>
                                 <option value="ru">${login_language_ru}</option>
-                                <%--develop later--%>
-                                <%--<option value="es">Espanol</option>--%>
                             </select>
                         </div>
                         <div>
@@ -85,7 +71,7 @@
                 <p align="center" class="link"><span>${login_footer}&nbsp;<a href="/jsp/common/registration.jsp"> ${login_registlink}</a></span></p>
             </div>
             <div class="login-copy">
-                <p align="center" class="link"><span>© 2015 All rights reserved | Druzenok Yury</span></p>
+                <p align="center" class="link"><span>© 2016 All rights reserved | Druzenok Yury</span></p>
             </div>
         </div>
     </div>

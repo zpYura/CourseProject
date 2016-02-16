@@ -7,15 +7,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%--<html><head><title>JSP Timing</title></head>
-<body>
-<h5>Счетчик времени от запуска приложения до нажатия кнопки</h5>
-<jsp:useBean id="calendar" class="java.util.GregorianCalendar"/>
-<form name="Simple" action="timeaction" method="POST">
-  <input type="hidden" name="time" value="${calendar.timeInMillis}"/>
-  <input type="submit" name="button" value="Посчитать время"/>
-</form>
-</body></html>--%>
 <html>
 <head>
     <title>The Paradise-Hotel | Hotel</title>
@@ -67,69 +58,6 @@
 <!--start main -->
 <div class="main_bg">
     <div class="wrap">
-        <%--develop later--%>
-        <%--<div class="online_reservation">--%>
-            <%--<div class="b_room">--%>
-                <%--<div class="booking_room">--%>
-                    <%--<h4>book a room online</h4>--%>
-                    <%--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>--%>
-                <%--</div>--%>
-                <%--<div class="reservation">--%>
-                    <%--<ul>--%>
-                        <%--<li class="span1_of_1">--%>
-                            <%--<h5>type of room:</h5>--%>
-                            <%--<!----------start section_room----------->--%>
-                            <%--<div class="section_room">--%>
-                                <%--<select id="country" onchange="change_country(this.value)" class="frm-field required">--%>
-                                    <%--<option value="null">Select a type of room</option>--%>
-                                    <%--<option value="null">Suite room</option>--%>
-                                    <%--<option value="AX">Single room</option>--%>
-                                    <%--<option value="AX">Double room</option>--%>
-                                <%--</select>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li  class="span1_of_1 left">--%>
-                            <%--<h5>check-in-date:</h5>--%>
-                            <%--<div class="book_date">--%>
-                                <%--<form>--%>
-                                    <%--<input class="date" id="datepicker" type="text" value="DD/MM/YY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DD/MM/YY';}">--%>
-                                <%--</form>--%>
-
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li  class="span1_of_1 left">--%>
-                            <%--<h5>check-out-date:</h5>--%>
-                            <%--<div class="book_date">--%>
-                                <%--<form>--%>
-                                    <%--<input class="date" id="datepicker1" type="text" value="DD/MM/YY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DD/MM/YY';}">--%>
-                                <%--</form>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li class="span1_of_2 left">--%>
-                            <%--<h5>Adults:</h5>--%>
-                            <%--<!----------start section_room----------->--%>
-                            <%--<div class="section_room">--%>
-                                <%--<select id="country" onchange="change_country(this.value)" class="frm-field required">--%>
-                                    <%--<option value="null">1</option>--%>
-                                    <%--<option value="null">2</option>--%>
-                                    <%--<option value="AX">3</option>--%>
-                                    <%--<option value="AX">4</option>--%>
-                                <%--</select>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<li class="span1_of_3">--%>
-                            <%--<div class="date_btn">--%>
-                                <%--<form action="select_language" method="POST">--%>
-                                    <%--<input type="submit" value="book now" />--%>
-                                <%--</form>--%>
-                            <%--</div>--%>
-                        <%--</li>--%>
-                        <%--<div class="clear"></div>--%>
-                    <%--</ul>--%>
-                <%--</div>--%>
-                <%--<div class="clear"></div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
         <!--start grids_of_3 -->
         <div class="grids_of_3">
             <div class="grid1_of_3">

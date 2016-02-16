@@ -17,8 +17,8 @@
 				<h4>${admin_clients_header}</h4>
 				<p class="para">${admin_clients_description}</p>
 			</div>
-				<div class="grids_of_2">
-					<div class="grids_of_para">
+				<div class="grids_of_2_table">
+					<div class="grids_of_para_table">
 						<table class="table3">
 							<thead>
 							<tr>
@@ -48,7 +48,6 @@
 							<td><c:out value="${elem.getLogin()}"/></td>
                                 <td><c:out value="${elem.getPassword()}"/></td>
 							</tr>
-
 							</c:forEach>
 							</tbody>
 						</table>
@@ -56,14 +55,6 @@
 					<div class="clear"></div>
 				</div>
 		</div>
-		<%--<div class="sidebar">--%>
-			 <%--<div class="date_btn">--%>
-				<%--<form action="/controller">--%>
-					<%--<input type="hidden" name="command" value="request_search" />--%>
-					<%--<input type="submit" value="${requests_page_button}" style="width: 82px;">--%>
-				<%--</form>--%>
-			<%--</div>--%>
-		<%--</div>--%>
 		<div class="clear"></div>
 	</div>
 </div>
